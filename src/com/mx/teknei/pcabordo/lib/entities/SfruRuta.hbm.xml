@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 5/08/2015 10:23:15 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.mx.teknei.pcabordo.lib.entities.SfruRuta" table="sfru_ruta" schema="sitm" optimistic-lock="version">
+        <id name="idRuta" type="int">
+            <column name="id_ruta" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="sflnLin" class="com.mx.teknei.pcabordo.lib.entities.SflnLin" fetch="select">
+            <column name="id_lin">
+                <comment>Identificador unico de Linea</comment>
+            </column>
+        </many-to-one>
+        <property name="nomRuta" type="string">
+            <column name="nom_ruta" length="120">
+                <comment>nombre de la ruta</comment>
+            </column>
+        </property>
+        <property name="descRuta" type="string">
+            <column name="desc_ruta" length="100">
+                <comment>descripci&#243;n de la ruta</comment>
+            </column>
+        </property>
+        <property name="tipoRuta" type="java.lang.Integer">
+            <column name="tipo_ruta">
+                <comment>Troncal o alimentadora</comment>
+            </column>
+        </property>
+        <property name="tipoDia" type="java.lang.Integer">
+            <column name="tipo_dia">
+                <comment>hab&#237;l, festivo, sab&#225;do,domingo</comment>
+            </column>
+        </property>
+        <property name="tipoServ" type="java.lang.Integer">
+            <column name="tipo_serv">
+                <comment>Semi-expres &#150; ordinario</comment>
+            </column>
+        </property>
+        <property name="parMax" type="java.lang.Integer">
+            <column name="par_max">
+                <comment>n&#250;mero m&#225;ximo de paradas</comment>
+            </column>
+        </property>
+        <property name="parMin" type="java.lang.Integer">
+            <column name="par_min">
+                <comment>n&#250;mero m&#237;nimo de paradas</comment>
+            </column>
+        </property>
+        <property name="recoRuta" type="double">
+            <column name="reco_ruta" precision="17" scale="17" not-null="true">
+                <comment>Sumatoria distancia entre la terminal origen y la terminal destino</comment>
+            </column>
+        </property>
+        <property name="jornRuta" type="java.lang.Integer">
+            <column name="jorn_ruta">
+                <comment>numero de corridas para la ruta</comment>
+            </column>
+        </property>
+        <property name="durRuta" type="timestamp">
+            <column name="dur_ruta" length="29">
+                <comment>Duraci&#243;n de la ruta</comment>
+            </column>
+        </property>
+        <property name="usrCrea" type="string">
+            <column name="usr_crea" length="10" not-null="true">
+                <comment>Nombre del usuario que cre&#243; el registro</comment>
+            </column>
+        </property>
+        <property name="fchCrea" type="timestamp">
+            <column name="fch_crea" length="29" not-null="true" />
+        </property>
+        <property name="usrModi" type="string">
+            <column name="usr_modi" length="10">
+                <comment>Nombre del usuario que modific&#243; el registro</comment>
+            </column>
+        </property>
+        <property name="fchModi" type="timestamp">
+            <column name="fch_modi" length="29">
+                <comment>fecha de modificaci&#243;n del registro</comment>
+            </column>
+        </property>
+        <property name="idEsta" type="int">
+            <column name="id_esta" not-null="true">
+                <comment>Estado de actualizaci&#243;n del producto</comment>
+            </column>
+        </property>
+        <property name="idTipo" type="java.lang.Integer">
+            <column name="id_tipo">
+                <comment>Tipo de producto</comment>
+            </column>
+        </property>
+        <set name="sfruCruts" table="sfru_crut" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_ruta">
+                    <comment>llave foranea para rutas</comment>
+                </column>
+            </key>
+            <one-to-many class="com.mx.teknei.pcabordo.lib.entities.SfruCrut" />
+        </set>
+        <set name="sfpfItins" table="sfpf_itin" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_ruta">
+                    <comment>FK tabla de rutas</comment>
+                </column>
+            </key>
+            <one-to-many class="com.mx.teknei.pcabordo.lib.entities.SfpfItin" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 5/08/2015 10:23:15 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.mx.teknei.pcabordo.lib.entities.SfmoHistReceNave" table="sfmo_hist_rece_nave" schema="sitm" optimistic-lock="version">
+        <comment>Tabla historial del receptor de Navegaci&#243;n, SICOFT</comment>
+        <id name="idRecoNave" type="int">
+            <column name="id_reco_nave" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="sfvhVehi" class="com.mx.teknei.pcabordo.lib.entities.SfvhVehi" fetch="select">
+            <column name="id_vehi">
+                <comment>FK Vehiculos</comment>
+            </column>
+        </many-to-one>
+        <property name="numSeriRecoNave" type="string">
+            <column name="num_seri_reco_nave" length="55">
+                <comment>n&#250;mero de serie del vehiculo</comment>
+            </column>
+        </property>
+        <property name="modeReceNave" type="string">
+            <column name="mode_rece_nave" length="55">
+                <comment>modelo del vehiculo</comment>
+            </column>
+        </property>
+        <property name="latiReceNave" type="java.lang.Double">
+            <column name="lati_rece_nave" precision="17" scale="17">
+                <comment>latitud obtenida del recorrido</comment>
+            </column>
+        </property>
+        <property name="longReceNave" type="java.lang.Double">
+            <column name="long_rece_nave" precision="17" scale="17">
+                <comment>longitud obtenida del receptor</comment>
+            </column>
+        </property>
+        <property name="veloReceNave" type="java.lang.Double">
+            <column name="velo_rece_nave" precision="17" scale="17">
+                <comment>velocidad del vehiculo</comment>
+            </column>
+        </property>
+        <property name="distRecoReceNave" type="java.lang.Double">
+            <column name="dist_reco_rece_nave" precision="17" scale="17">
+                <comment>distancia recorrida del vehiculo</comment>
+            </column>
+        </property>
+        <property name="fchReceNave" type="timestamp">
+            <column name="fch_rece_nave" length="29">
+                <comment>fecha del receptor de navegaci&#243;n</comment>
+            </column>
+        </property>
+        <property name="timeRecoReceNave" type="java.lang.Double">
+            <column name="time_reco_rece_nave" precision="17" scale="17">
+                <comment>tiempo del recorrido</comment>
+            </column>
+        </property>
+        <property name="horaSistReceNave" type="timestamp">
+            <column name="hora_sist_rece_nave" length="29">
+                <comment>hora del sistema, receptor navegaci&#243;n</comment>
+            </column>
+        </property>
+        <property name="horaGpsReceNave" type="timestamp">
+            <column name="hora_gps_rece_nave" length="29">
+                <comment>hora GPS</comment>
+            </column>
+        </property>
+        <property name="idEsta" type="int">
+            <column name="id_esta" not-null="true">
+                <comment>fk - estatus</comment>
+            </column>
+        </property>
+        <property name="idTipo" type="java.lang.Integer">
+            <column name="id_tipo">
+                <comment>fk - id Tipo de Cat&#225;logo</comment>
+            </column>
+        </property>
+        <property name="usrCrea" type="string">
+            <column name="usr_crea" length="10" not-null="true">
+                <comment>Nombre del usuario que cre&#243; el registro</comment>
+            </column>
+        </property>
+        <property name="fchCrea" type="timestamp">
+            <column name="fch_crea" length="29" not-null="true">
+                <comment>Fecha de creaci&#243;n del registro</comment>
+            </column>
+        </property>
+        <property name="usrModi" type="string">
+            <column name="usr_modi" length="10">
+                <comment>Nombre del usuario que modific&#243; el registro</comment>
+            </column>
+        </property>
+        <property name="fchModi" type="timestamp">
+            <column name="fch_modi" length="29">
+                <comment>Fecha de modificaci&#243;n del registro</comment>
+            </column>
+        </property>
+        <property name="idConSis" type="java.lang.Integer">
+            <column name="id_con_sis" />
+        </property>
+    </class>
+</hibernate-mapping>

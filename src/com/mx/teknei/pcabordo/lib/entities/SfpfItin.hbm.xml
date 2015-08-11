@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 5/08/2015 10:23:15 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.mx.teknei.pcabordo.lib.entities.SfpfItin" table="sfpf_itin" schema="sitm" optimistic-lock="version">
+        <comment>tabla para itinerario, programaci&#243;n de Flotas</comment>
+        <id name="idItin" type="int">
+            <column name="id_itin" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="sfcrVehiCond" class="com.mx.teknei.pcabordo.lib.entities.SfcrVehiCond" fetch="select">
+            <column name="id_vehi_cond">
+                <comment>FK identificador &#250;nico de tabla de cruce veh&#237;culo y empleado</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="sfesEstByIdEstaOrig" class="com.mx.teknei.pcabordo.lib.entities.SfesEst" fetch="select">
+            <column name="id_esta_orig">
+                <comment>Id estacion Origen FK</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="sfesEstByIdEstaDest" class="com.mx.teknei.pcabordo.lib.entities.SfesEst" fetch="select">
+            <column name="id_esta_dest">
+                <comment>FK estacion destino</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="sfmoReceNave" class="com.mx.teknei.pcabordo.lib.entities.SfmoReceNave" fetch="select">
+            <column name="id_rece_nave">
+                <comment>FK tabla receptor de navegacion</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="sfruRuta" class="com.mx.teknei.pcabordo.lib.entities.SfruRuta" fetch="select">
+            <column name="id_ruta">
+                <comment>FK tabla de rutas</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="sfvhVehi" class="com.mx.teknei.pcabordo.lib.entities.SfvhVehi" fetch="select">
+            <column name="id_vehi">
+                <comment>FK tabla de vehiculos</comment>
+            </column>
+        </many-to-one>
+        <property name="horaSaliItin" type="timestamp">
+            <column name="hora_sali_itin" length="29">
+                <comment>hora de salida del autobus</comment>
+            </column>
+        </property>
+        <property name="horaLlegItin" type="timestamp">
+            <column name="hora_lleg_itin" length="29">
+                <comment>hora de llegada del autobus</comment>
+            </column>
+        </property>
+        <property name="horaSaliRealItin" type="timestamp">
+            <column name="hora_sali_real_itin" length="29">
+                <comment>hora real de salida del autobus</comment>
+            </column>
+        </property>
+        <property name="horaLlegRealItin" type="timestamp">
+            <column name="hora_lleg_real_itin" length="29">
+                <comment>hora de llegada del autobus</comment>
+            </column>
+        </property>
+        <property name="direItin" type="string">
+            <column name="dire_itin" length="55">
+                <comment>direcci&#243;n en la cual circula el veh&#237;culo</comment>
+            </column>
+        </property>
+        <property name="usrCrea" type="string">
+            <column name="usr_crea" length="10" not-null="true">
+                <comment>usuario que creo el registro</comment>
+            </column>
+        </property>
+        <property name="fchCrea" type="timestamp">
+            <column name="fch_crea" length="29" not-null="true">
+                <comment>fecha de creaci&#243;n del registro</comment>
+            </column>
+        </property>
+        <property name="usrModi" type="string">
+            <column name="usr_modi" length="10">
+                <comment>usuario de modificaci&#243;n del registro</comment>
+            </column>
+        </property>
+        <property name="fchModi" type="timestamp">
+            <column name="fch_modi" length="29">
+                <comment>fecha de modificaci&#243;n del registro</comment>
+            </column>
+        </property>
+        <property name="idEsta" type="int">
+            <column name="id_esta" not-null="true">
+                <comment>fk - id esta de estatus</comment>
+            </column>
+        </property>
+        <property name="idTipo" type="java.lang.Integer">
+            <column name="id_tipo">
+                <comment>fk - id tipo CATA</comment>
+            </column>
+        </property>
+        <property name="idConSis" type="java.lang.Integer">
+            <column name="id_con_sis" />
+        </property>
+        <property name="idTipoLin" type="java.lang.Integer">
+            <column name="id_tipo_lin">
+                <comment>tipo de linea, troncal o alimentadora</comment>
+            </column>
+        </property>
+        <property name="idCond" type="java.lang.Integer">
+            <column name="id_cond">
+                <comment>FK identificador de tabla conductor</comment>
+            </column>
+        </property>
+        <set name="sfdtDitis" table="sfdt_diti" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_itin" not-null="true">
+                    <comment>PK de tabla itinerario</comment>
+                </column>
+            </key>
+            <one-to-many class="com.mx.teknei.pcabordo.lib.entities.SfdtDiti" />
+        </set>
+    </class>
+</hibernate-mapping>

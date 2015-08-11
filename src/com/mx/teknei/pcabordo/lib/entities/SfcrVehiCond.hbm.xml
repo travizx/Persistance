@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 5/08/2015 10:23:15 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.mx.teknei.pcabordo.lib.entities.SfcrVehiCond" table="sfcr_vehi_cond" schema="sitm" optimistic-lock="version">
+        <comment>tabla de cruce d&#243;nde guardaremos id_cond e id_vehi en la cual se realizar&#225; la asignaci&#243;n conductor/veh&#237;culo</comment>
+        <id name="idVehiCond" type="int">
+            <column name="id_vehi_cond" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="sfemCond" class="com.mx.teknei.pcabordo.lib.entities.SfemCond" fetch="select">
+            <column name="id_cond">
+                <comment>FK identificador &#250;nico de tabla conductor</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="sfvhVehi" class="com.mx.teknei.pcabordo.lib.entities.SfvhVehi" fetch="select">
+            <column name="id_vehi">
+                <comment>FK identificador &#250;nico de tabla vehiculo</comment>
+            </column>
+        </many-to-one>
+        <property name="fchCrea" type="timestamp">
+            <column name="fch_crea" length="29">
+                <comment>Fecha creacion</comment>
+            </column>
+        </property>
+        <property name="stat" type="java.lang.Boolean">
+            <column name="stat">
+                <comment>Estatus</comment>
+            </column>
+        </property>
+        <set name="sfpfItins" table="sfpf_itin" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_vehi_cond">
+                    <comment>FK identificador &#250;nico de tabla de cruce veh&#237;culo y empleado</comment>
+                </column>
+            </key>
+            <one-to-many class="com.mx.teknei.pcabordo.lib.entities.SfpfItin" />
+        </set>
+    </class>
+</hibernate-mapping>

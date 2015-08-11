@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+    <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+    <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/pc_abordo</property>
+    <property name="hibernate.connection.username">postgres</property>
+    <property name="hibernate.connection.password">admin</property>
+    <mapping resource="com/mx/teknei/pcabordo/lib/entities/SfpfItin.hbm.xml"/>
+    <mapping resource="com/mx/teknei/pcabordo/lib/entities/SbctAlar.hbm.xml"/>
+    <mapping resource="com/mx/teknei/pcabordo/lib/entities/CctmDire.hbm.xml"/>
+    <mapping resource="com/mx/teknei/pcabordo/lib/entities/CctmCodp.hbm.xml"/>
+    <mapping resource="com/mx/teknei/pcabordo/lib/entities/CctmEstd.hbm.xml"/>
+    <mapping resource="com/mx/teknei/pcabordo/lib/entities/SfgfHoseFlot.hbm.xml"/>
+    <mapping resource="com/mx/teknei/pcabordo/lib/entities/SfemCond.hbm.xml"/>
+    <mapping resource="com/mx/teknei/pcabordo/lib/entities/SfdtDiti.hbm.xml"/>
+    <mapping resource="com/mx/teknei/pcabordo/lib/entities/SfmoTipu.hbm.xml"/>
+    <mapping resource="com/mx/teknei/pcabordo/lib/entities/CctmCiud.hbm.xml"/>
+    <mapping resource="com/mx/teknei/pcabordo/lib/entities/SfvhVehi.hbm.xml"/>
+    <mapping resource="com/mx/teknei/pcabordo/lib/entities/SfpcCata.hbm.xml"/>
+    <mapping resource="com/mx/teknei/pcabordo/lib/entities/SfruRuta.hbm.xml"/>
+    <mapping resource="com/mx/teknei/pcabordo/lib/entities/SfmoHistReceNave.hbm.xml"/>
+    <mapping resource="com/mx/teknei/pcabordo/lib/entities/SfopEquiAlar.hbm.xml"/>
+    <mapping resource="com/mx/teknei/pcabordo/lib/entities/SfalConf.hbm.xml"/>
+    <mapping resource="com/mx/teknei/pcabordo/lib/entities/SflnLin.hbm.xml"/>
+    <mapping resource="com/mx/teknei/pcabordo/lib/entities/CctmArpo.hbm.xml"/>
+    <mapping resource="com/mx/teknei/pcabordo/lib/entities/SfcrVehiCond.hbm.xml"/>
+    <mapping resource="com/mx/teknei/pcabordo/lib/entities/SfmoReceNave.hbm.xml"/>
+    <mapping resource="com/mx/teknei/pcabordo/lib/entities/CctmColn.hbm.xml"/>
+    <mapping resource="com/mx/teknei/pcabordo/lib/entities/CctmMncp.hbm.xml"/>
+    <mapping resource="com/mx/teknei/pcabordo/lib/entities/SfesEst.hbm.xml"/>
+    <mapping resource="com/mx/teknei/pcabordo/lib/entities/SfruCrut.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

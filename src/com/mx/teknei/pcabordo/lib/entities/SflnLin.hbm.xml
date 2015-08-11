@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 5/08/2015 10:23:15 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.mx.teknei.pcabordo.lib.entities.SflnLin" table="sfln_lin" schema="sitm" optimistic-lock="version">
+        <comment>Linea del BRT, esta se asocia a una serie de estaciones</comment>
+        <id name="idLin" type="int">
+            <column name="id_lin" />
+            <generator class="assigned" />
+        </id>
+        <property name="nom" type="string">
+            <column name="nom" length="40" not-null="true">
+                <comment>Nombre de la linea</comment>
+            </column>
+        </property>
+        <property name="descLin" type="string">
+            <column name="desc_lin" length="100" not-null="true">
+                <comment>Descripci&#243;n de la linea</comment>
+            </column>
+        </property>
+        <property name="distEst" type="double">
+            <column name="dist_est" precision="17" scale="17" not-null="true">
+                <comment>Distancia estimada de la linea</comment>
+            </column>
+        </property>
+        <property name="idConSis" type="int">
+            <column name="id_con_sis" not-null="true">
+                <comment>Identificador del Sistema y del Proveedor al que pertenece la l&#237;nea</comment>
+            </column>
+        </property>
+        <property name="usrCrea" type="string">
+            <column name="usr_crea" length="10" not-null="true">
+                <comment>Nombre del usuario que cre&#243; el registro</comment>
+            </column>
+        </property>
+        <property name="fchCrea" type="timestamp">
+            <column name="fch_crea" length="29" not-null="true">
+                <comment>Fecha de creaci&#243;n del registro</comment>
+            </column>
+        </property>
+        <property name="usrModi" type="string">
+            <column name="usr_modi" length="10">
+                <comment>Nombre del usuario que modific&#243; el registro</comment>
+            </column>
+        </property>
+        <property name="fchModi" type="timestamp">
+            <column name="fch_modi" length="29">
+                <comment>Fecha de modificaci&#243;n del registro</comment>
+            </column>
+        </property>
+        <property name="idEsta" type="int">
+            <column name="id_esta" not-null="true">
+                <comment>FK_CCTM_CATA - Estado de actualizaci&#243;n del registro</comment>
+            </column>
+        </property>
+        <property name="idTipo" type="int">
+            <column name="id_tipo" not-null="true">
+                <comment>FK_CCTM_CATA - Tipo del registro</comment>
+            </column>
+        </property>
+        <property name="idTipoLin" type="int">
+            <column name="id_tipo_lin" not-null="true" />
+        </property>
+        <property name="tiemEst" type="timestamp">
+            <column name="tiem_est" length="29" not-null="true" />
+        </property>
+        <set name="sfruRutas" table="sfru_ruta" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_lin">
+                    <comment>Identificador unico de Linea</comment>
+                </column>
+            </key>
+            <one-to-many class="com.mx.teknei.pcabordo.lib.entities.SfruRuta" />
+        </set>
+        <set name="sfmoTipus" table="sfmo_tipu" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_lin">
+                    <comment>FK tabla lineas</comment>
+                </column>
+            </key>
+            <one-to-many class="com.mx.teknei.pcabordo.lib.entities.SfmoTipu" />
+        </set>
+    </class>
+</hibernate-mapping>

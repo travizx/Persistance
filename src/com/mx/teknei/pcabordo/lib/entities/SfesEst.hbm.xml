@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 5/08/2015 10:23:15 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.mx.teknei.pcabordo.lib.entities.SfesEst" table="sfes_est" schema="sitm" optimistic-lock="version">
+        <comment>Estaciones del BRT, un conjunto de estaciones forman una linea</comment>
+        <id name="idEst" type="int">
+            <column name="id_est" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="cctmDire" class="com.mx.teknei.pcabordo.lib.entities.CctmDire" fetch="select">
+            <column name="id_dire">
+                <comment>FK Identificador &#250;nico de tabla direcciones</comment>
+            </column>
+        </many-to-one>
+        <property name="nomEst" type="string">
+            <column name="nom_est" length="100" not-null="true">
+                <comment>Nombre de la estaci&#243;n</comment>
+            </column>
+        </property>
+        <property name="descEst" type="string">
+            <column name="desc_est" length="100" not-null="true">
+                <comment>Descripci&#243;n breve de la estaci&#243;n</comment>
+            </column>
+        </property>
+        <property name="noDisp" type="int">
+            <column name="no_disp" not-null="true">
+                <comment>Disponibilidad de la estaci&#243;n</comment>
+            </column>
+        </property>
+        <property name="cantVehi" type="int">
+            <column name="cant_vehi" not-null="true">
+                <comment>Cantidad de vehiculos que caben en la estaci&#243;n</comment>
+            </column>
+        </property>
+        <property name="tran" type="int">
+            <column name="tran" not-null="true">
+                <comment>Transbordo(SI, NO)</comment>
+            </column>
+        </property>
+        <property name="tipoEst" type="int">
+            <column name="tipo_est" not-null="true">
+                <comment>FK_CCTM_CATA - Tipo de estaci&#243;n (Estacion, Terminal)</comment>
+            </column>
+        </property>
+        <property name="imgEst" type="string">
+            <column name="img_est" length="200" not-null="true">
+                <comment>Imagen identificadora de la estaci&#243;n</comment>
+            </column>
+        </property>
+        <property name="usrCrea" type="string">
+            <column name="usr_crea" length="10" not-null="true">
+                <comment>Nombre del usuario que cre&#243; el registro</comment>
+            </column>
+        </property>
+        <property name="fchCrea" type="timestamp">
+            <column name="fch_crea" length="29" not-null="true">
+                <comment>Fecha de creaci&#243;n del registro</comment>
+            </column>
+        </property>
+        <property name="usrModi" type="string">
+            <column name="usr_modi" length="10">
+                <comment>Nombre del usuario que modific&#243; el registro</comment>
+            </column>
+        </property>
+        <property name="fchModi" type="timestamp">
+            <column name="fch_modi" length="29">
+                <comment>Fecha de modificaci&#243;n del registro</comment>
+            </column>
+        </property>
+        <property name="idEsta" type="int">
+            <column name="id_esta" not-null="true">
+                <comment>FK_CCTM_CATA - Estado de actualizaci&#243;n del registro</comment>
+            </column>
+        </property>
+        <property name="idTipo" type="int">
+            <column name="id_tipo" not-null="true">
+                <comment>FK_CCTM_CATA - Tipo del registro</comment>
+            </column>
+        </property>
+        <property name="idConSis" type="java.lang.Integer">
+            <column name="id_con_sis">
+                <comment>Identificador del Sistema y del Proveedor al que pertenece la estaci&#243;n</comment>
+            </column>
+        </property>
+        <property name="idPcAbor" type="java.lang.Integer">
+            <column name="id_pc_abor">
+                <comment>FK Identificador &#250;nico de tabla c&#225;talo de par&#225;metros de configuraci&#243;n</comment>
+            </column>
+        </property>
+        <set name="sfpfItinsForIdEstaOrig" table="sfpf_itin" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_esta_orig">
+                    <comment>Id estacion Origen FK</comment>
+                </column>
+            </key>
+            <one-to-many class="com.mx.teknei.pcabordo.lib.entities.SfpfItin" />
+        </set>
+        <set name="sfruCrutsForIdEstOrig" table="sfru_crut" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_est_orig">
+                    <comment>FK Estacion origen</comment>
+                </column>
+            </key>
+            <one-to-many class="com.mx.teknei.pcabordo.lib.entities.SfruCrut" />
+        </set>
+        <set name="sfpfItinsForIdEstaDest" table="sfpf_itin" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_esta_dest">
+                    <comment>FK estacion destino</comment>
+                </column>
+            </key>
+            <one-to-many class="com.mx.teknei.pcabordo.lib.entities.SfpfItin" />
+        </set>
+        <set name="sfdtDitisForIdEsto" table="sfdt_diti" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_esto" not-null="true">
+                    <comment>FK de tabla estaci&#243;n origen</comment>
+                </column>
+            </key>
+            <one-to-many class="com.mx.teknei.pcabordo.lib.entities.SfdtDiti" />
+        </set>
+        <set name="sfdtDitisForIdEstd" table="sfdt_diti" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_estd" not-null="true">
+                    <comment>FK de estaci&#243;n destino</comment>
+                </column>
+            </key>
+            <one-to-many class="com.mx.teknei.pcabordo.lib.entities.SfdtDiti" />
+        </set>
+        <set name="sfruCrutsForIdEstDest" table="sfru_crut" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_est_dest">
+                    <comment>FK estacion destino</comment>
+                </column>
+            </key>
+            <one-to-many class="com.mx.teknei.pcabordo.lib.entities.SfruCrut" />
+        </set>
+    </class>
+</hibernate-mapping>

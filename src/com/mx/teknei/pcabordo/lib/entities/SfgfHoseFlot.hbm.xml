@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 5/08/2015 10:23:15 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.mx.teknei.pcabordo.lib.entities.SfgfHoseFlot" table="sfgf_hose_flot" schema="sitm" optimistic-lock="version">
+        <comment>Tabla de gesti&#243;n de flotas donde se registrar&#225;n los distintos horarios de servicio que ofrece el sistema RUTA</comment>
+        <id name="idHoraServ" type="int">
+            <column name="id_hora_serv" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="sfpcCata" class="com.mx.teknei.pcabordo.lib.entities.SfpcCata" fetch="select">
+            <column name="tipo_dia">
+                <comment>Tipo de dia en el que se brinda el servicio de operaci&#243;n ( festivo, laboral, dominical, especial)</comment>
+            </column>
+        </many-to-one>
+        <property name="horaInic" type="timestamp">
+            <column name="hora_inic" length="29">
+                <comment>Horario de inicio de operacion del sistema RUTA</comment>
+            </column>
+        </property>
+        <property name="horaFin" type="timestamp">
+            <column name="hora_fin" length="29">
+                <comment>Hora de fin de operaci&#243;n del sistema RUTA</comment>
+            </column>
+        </property>
+        <property name="fchOper" type="timestamp">
+            <column name="fch_oper" length="29">
+                <comment>Fecha de operaci&#243;n en la que se ofrece el servicio de operaci&#243;n</comment>
+            </column>
+        </property>
+        <property name="descServ" type="string">
+            <column name="desc_serv">
+                <comment>Descripcion del servicio de operaci&#243;n</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

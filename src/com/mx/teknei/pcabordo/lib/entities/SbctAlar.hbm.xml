@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 5/08/2015 10:23:15 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.mx.teknei.pcabordo.lib.entities.SbctAlar" table="sbct_alar" schema="sitm" optimistic-lock="version">
+        <comment>Cat&#225;logo de los tipos de alarmas que pueden ser generadas en operaci&#243;n</comment>
+        <id name="idAlar" type="int">
+            <column name="id_alar" />
+            <generator class="assigned" />
+        </id>
+        <property name="idPrio" type="java.lang.Integer">
+            <column name="id_prio">
+                <comment>fk - id prioridad de la alarma</comment>
+            </column>
+        </property>
+        <property name="desAlar" type="string">
+            <column name="des_alar" length="50">
+                <comment>descripcion de la alarma</comment>
+            </column>
+        </property>
+        <property name="idEsta" type="int">
+            <column name="id_esta" not-null="true">
+                <comment>fk - id estatus de la alarma</comment>
+            </column>
+        </property>
+        <property name="idTipo" type="int">
+            <column name="id_tipo" not-null="true">
+                <comment>fk - id tipo de alarma</comment>
+            </column>
+        </property>
+        <property name="usrCrea" type="string">
+            <column name="usr_crea" length="10" not-null="true">
+                <comment>usuario que crea registro</comment>
+            </column>
+        </property>
+        <property name="fchCrea" type="timestamp">
+            <column name="fch_crea" length="29" not-null="true">
+                <comment>fecha creacion de registro</comment>
+            </column>
+        </property>
+        <property name="usrModi" type="string">
+            <column name="usr_modi" length="10">
+                <comment>usuario que modifica registro</comment>
+            </column>
+        </property>
+        <property name="fchModi" type="timestamp">
+            <column name="fch_modi" length="29">
+                <comment>fecha modificacion de registro</comment>
+            </column>
+        </property>
+        <property name="idTipoAlar" type="java.lang.Integer">
+            <column name="id_tipo_alar">
+                <comment>Identificador del tipo de alarma</comment>
+            </column>
+        </property>
+        <set name="sfopEquiAlars" table="sfop_equi_alar" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_alar">
+                    <comment>FK identificador unico de tabla alarma</comment>
+                </column>
+            </key>
+            <one-to-many class="com.mx.teknei.pcabordo.lib.entities.SfopEquiAlar" />
+        </set>
+        <set name="sfalConfs" table="sfal_conf" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_alar">
+                    <comment>FK identificador &#250;nico de tabla alarma</comment>
+                </column>
+            </key>
+            <one-to-many class="com.mx.teknei.pcabordo.lib.entities.SfalConf" />
+        </set>
+    </class>
+</hibernate-mapping>

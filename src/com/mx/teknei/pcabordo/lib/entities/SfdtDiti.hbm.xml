@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 5/08/2015 10:23:15 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.mx.teknei.pcabordo.lib.entities.SfdtDiti" table="sfdt_diti" schema="sitm" optimistic-lock="version">
+        <comment>Tabla detalle itinerario</comment>
+        <id name="idDiti" type="int">
+            <column name="id_diti" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="sfesEstByIdEsto" class="com.mx.teknei.pcabordo.lib.entities.SfesEst" fetch="select">
+            <column name="id_esto" not-null="true">
+                <comment>FK de tabla estaci&#243;n origen</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="sfesEstByIdEstd" class="com.mx.teknei.pcabordo.lib.entities.SfesEst" fetch="select">
+            <column name="id_estd" not-null="true">
+                <comment>FK de estaci&#243;n destino</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="sfpfItin" class="com.mx.teknei.pcabordo.lib.entities.SfpfItin" fetch="select">
+            <column name="id_itin" not-null="true">
+                <comment>PK de tabla itinerario</comment>
+            </column>
+        </many-to-one>
+        <property name="horEsal" type="timestamp">
+            <column name="hor_esal" length="29" not-null="true">
+                <comment>hora estimada de salida</comment>
+            </column>
+        </property>
+        <property name="horElle" type="timestamp">
+            <column name="hor_elle" length="29" not-null="true">
+                <comment>Hora estimada llegada</comment>
+            </column>
+        </property>
+        <property name="horaReal" type="timestamp">
+            <column name="hora_real" length="29" not-null="true">
+                <comment>tiempo de llegada real a estaci&#243;n destino</comment>
+            </column>
+        </property>
+        <property name="usrCrea" type="string">
+            <column name="usr_crea" length="10" not-null="true">
+                <comment>Nombre del usuario que cre&#243; el registro</comment>
+            </column>
+        </property>
+        <property name="fchCrea" type="timestamp">
+            <column name="fch_crea" length="29" not-null="true">
+                <comment>Fecha de creaci&#243;n del registro</comment>
+            </column>
+        </property>
+        <property name="usrModi" type="string">
+            <column name="usr_modi" length="10">
+                <comment>Nombre del usuario que modific&#243; el registro</comment>
+            </column>
+        </property>
+        <property name="fchModi" type="timestamp">
+            <column name="fch_modi" length="29">
+                <comment>Fecha de modificaci&#243;n del registro</comment>
+            </column>
+        </property>
+        <property name="idEsta" type="int">
+            <column name="id_esta" not-null="true">
+                <comment>FK_CCTM_CATA - Estado de actualizaci&#243;n del registro</comment>
+            </column>
+        </property>
+        <property name="idTipo" type="int">
+            <column name="id_tipo" not-null="true">
+                <comment>FK_CCTM_CATA - Tipo del registro</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

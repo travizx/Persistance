@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 5/08/2015 10:23:15 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.mx.teknei.pcabordo.lib.entities.SfopEquiAlar" table="sfop_equi_alar" schema="sitm" optimistic-lock="version">
+        <comment>Tabla equipo alarma</comment>
+        <id name="idOpeqAlar" type="int">
+            <column name="id_opeq_alar" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="sbctAlar" class="com.mx.teknei.pcabordo.lib.entities.SbctAlar" fetch="select">
+            <column name="id_alar">
+                <comment>FK identificador unico de tabla alarma</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="sfvhVehi" class="com.mx.teknei.pcabordo.lib.entities.SfvhVehi" fetch="select">
+            <column name="id_vehi">
+                <comment>FK identificador unico de tabla vehiculo</comment>
+            </column>
+        </many-to-one>
+        <property name="fchInic" type="timestamp">
+            <column name="fch_inic" length="29">
+                <comment>Fecha inicio</comment>
+            </column>
+        </property>
+        <property name="fchFin" type="timestamp">
+            <column name="fch_fin" length="29">
+                <comment>Fecha fin</comment>
+            </column>
+        </property>
+        <property name="estaEqui" type="java.lang.Character">
+            <column name="esta_equi" length="1">
+                <comment>estado equipo</comment>
+            </column>
+        </property>
+        <property name="latiAlar" type="java.lang.Double">
+            <column name="lati_alar" precision="17" scale="17">
+                <comment>Latitud de ubicaci&#243;n donde se origina la alarma</comment>
+            </column>
+        </property>
+        <property name="lontAlar" type="java.lang.Double">
+            <column name="lont_alar" precision="17" scale="17">
+                <comment>Longitud de ubicaci&#243;n donde se origina la alarma</comment>
+            </column>
+        </property>
+        <property name="idEst" type="java.lang.Integer">
+            <column name="id_est">
+                <comment>Estaci&#243;n m&#225;s cercana donde se origina la alarma</comment>
+            </column>
+        </property>
+        <property name="statAlar" type="java.lang.Integer">
+            <column name="stat_alar">
+                <comment>Estatus de equipo alarma</comment>
+            </column>
+        </property>
+        <property name="tramGps" type="java.lang.Double">
+            <column name="tram_gps" precision="17" scale="17">
+                <comment>registros de tramas GPS</comment>
+            </column>
+        </property>
+        <property name="estaAnti" type="java.lang.Integer">
+            <column name="esta_anti">
+                <comment>Parametro de estatus de alarma ANTI PANICO S.O.S.</comment>
+            </column>
+        </property>
+        <property name="descOpeqAlar" type="string">
+            <column name="desc_opeq_alar" length="200">
+                <comment>Descripci&#243;n de equipo alarma</comment>
+            </column>
+        </property>
+        <property name="usrCrea" type="string">
+            <column name="usr_crea" length="10" not-null="true">
+                <comment>usuario que crea registro</comment>
+            </column>
+        </property>
+        <property name="fchCrea" type="timestamp">
+            <column name="fch_crea" length="29" not-null="true">
+                <comment>fecha creacion de registro</comment>
+            </column>
+        </property>
+        <property name="usrModi" type="string">
+            <column name="usr_modi" length="10">
+                <comment>usuario que modifica registro</comment>
+            </column>
+        </property>
+        <property name="fchModi" type="timestamp">
+            <column name="fch_modi" length="29">
+                <comment>fecha modificacion de registro</comment>
+            </column>
+        </property>
+        <property name="idEsta" type="int">
+            <column name="id_esta" not-null="true">
+                <comment>fk - id estatus de la alerta</comment>
+            </column>
+        </property>
+        <property name="idTipo" type="int">
+            <column name="id_tipo" not-null="true">
+                <comment>fk - id tipo de alerta</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

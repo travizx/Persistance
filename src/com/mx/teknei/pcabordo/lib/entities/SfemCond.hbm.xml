@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 5/08/2015 10:23:15 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.mx.teknei.pcabordo.lib.entities.SfemCond" table="sfem_cond" schema="sitm" optimistic-lock="version">
+        <id name="idEmpCond" type="int">
+            <column name="id_emp_cond" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="sfpcCata" class="com.mx.teknei.pcabordo.lib.entities.SfpcCata" fetch="select">
+            <column name="stat_cond">
+                <comment>Este es un campo para una validaci&#243;n en el cual el conductor puede llegar a bloquearse por muchos intentos de Logeo en un PC Abordo.</comment>
+            </column>
+        </many-to-one>
+        <property name="numLic" type="java.lang.Integer">
+            <column name="num_lic">
+                <comment>Numero de licencia</comment>
+            </column>
+        </property>
+        <property name="fchVen" type="timestamp">
+            <column name="fch_ven" length="29">
+                <comment>Fecha de vencimiento de la licencia</comment>
+            </column>
+        </property>
+        <property name="idTipoLic" type="java.lang.Integer">
+            <column name="id_tipo_lic">
+                <comment>Tipo de licencia</comment>
+            </column>
+        </property>
+        <property name="userCond" type="string">
+            <column name="user_cond">
+                <comment>Usuario del conductor</comment>
+            </column>
+        </property>
+        <property name="passCond" type="string">
+            <column name="pass_cond">
+                <comment>Password del conductor</comment>
+            </column>
+        </property>
+        <property name="usrCrea" type="string">
+            <column name="usr_crea" length="10" not-null="true">
+                <comment>usuario que creo el registro</comment>
+            </column>
+        </property>
+        <property name="fchCrea" type="timestamp">
+            <column name="fch_crea" length="29" not-null="true">
+                <comment>fecha de creaci&#243;n del registro</comment>
+            </column>
+        </property>
+        <property name="usrModi" type="string">
+            <column name="usr_modi" length="10">
+                <comment>usuario de modificaci&#243;n del registro</comment>
+            </column>
+        </property>
+        <property name="fchModi" type="timestamp">
+            <column name="fch_modi" length="29">
+                <comment>fecha de modificaci&#243;n del registro</comment>
+            </column>
+        </property>
+        <set name="sfcrVehiConds" table="sfcr_vehi_cond" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_cond">
+                    <comment>FK identificador &#250;nico de tabla conductor</comment>
+                </column>
+            </key>
+            <one-to-many class="com.mx.teknei.pcabordo.lib.entities.SfcrVehiCond" />
+        </set>
+    </class>
+</hibernate-mapping>

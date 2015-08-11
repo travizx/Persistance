@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 5/08/2015 10:23:15 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.mx.teknei.pcabordo.lib.entities.SfpcCata" table="sfpc_cata" schema="sitm" optimistic-lock="version">
+        <comment>Tabla que contiene unos cat&#225;logos de Validadciones para el conductor.</comment>
+        <id name="idCata" type="int">
+            <column name="id_cata" />
+            <generator class="assigned" />
+        </id>
+        <property name="codCata" type="string">
+            <column name="cod_cata" length="10" not-null="true">
+                <comment>Nombre del Cat&#225;logo</comment>
+            </column>
+        </property>
+        <property name="codCort" type="string">
+            <column name="cod_cort" length="15" not-null="true">
+                <comment>C&#243;digo Corto</comment>
+            </column>
+        </property>
+        <property name="desCort" type="string">
+            <column name="des_cort" length="120" not-null="true">
+                <comment>Descripci&#243;n Corta</comment>
+            </column>
+        </property>
+        <property name="usrCrea" type="string">
+            <column name="usr_crea" length="10" not-null="true">
+                <comment>usuario que crea registro</comment>
+            </column>
+        </property>
+        <property name="fchCrea" type="timestamp">
+            <column name="fch_crea" length="29" not-null="true">
+                <comment>fecha creacion de registro</comment>
+            </column>
+        </property>
+        <property name="usrModi" type="string">
+            <column name="usr_modi" length="10">
+                <comment>usuario que modifica registro</comment>
+            </column>
+        </property>
+        <property name="fchModi" type="timestamp">
+            <column name="fch_modi" length="29">
+                <comment>fecha modificacion de registro</comment>
+            </column>
+        </property>
+        <set name="sfgfHoseFlots" table="sfgf_hose_flot" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="tipo_dia">
+                    <comment>Tipo de dia en el que se brinda el servicio de operaci&#243;n ( festivo, laboral, dominical, especial)</comment>
+                </column>
+            </key>
+            <one-to-many class="com.mx.teknei.pcabordo.lib.entities.SfgfHoseFlot" />
+        </set>
+        <set name="sfemConds" table="sfem_cond" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="stat_cond">
+                    <comment>Este es un campo para una validaci&#243;n en el cual el conductor puede llegar a bloquearse por muchos intentos de Logeo en un PC Abordo.</comment>
+                </column>
+            </key>
+            <one-to-many class="com.mx.teknei.pcabordo.lib.entities.SfemCond" />
+        </set>
+    </class>
+</hibernate-mapping>

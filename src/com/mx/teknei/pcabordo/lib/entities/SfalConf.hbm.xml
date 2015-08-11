@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 5/08/2015 10:23:15 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.mx.teknei.pcabordo.lib.entities.SfalConf" table="sfal_conf" schema="sitm" optimistic-lock="version">
+        <comment>Tabla par&#225;metros de configuraci&#243;n de alarmas</comment>
+        <id name="idConfAlar" type="int">
+            <column name="id_conf_alar" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="cctmArpo" class="com.mx.teknei.pcabordo.lib.entities.CctmArpo" fetch="select">
+            <column name="id_arpo">
+                <comment>Nivel de prioridad de alarma</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="sbctAlar" class="com.mx.teknei.pcabordo.lib.entities.SbctAlar" fetch="select">
+            <column name="id_alar">
+                <comment>FK identificador &#250;nico de tabla alarma</comment>
+            </column>
+        </many-to-one>
+        <property name="veloEsta" type="java.lang.Integer">
+            <column name="velo_esta">
+                <comment>Velocidad establecida</comment>
+            </column>
+        </property>
+        <property name="distRadi" type="java.lang.Double">
+            <column name="dist_radi" precision="17" scale="17">
+                <comment>Distacia de radio establecidad</comment>
+            </column>
+        </property>
+        <property name="descConfAlar" type="string">
+            <column name="desc_conf_alar" length="150">
+                <comment>Descripci&#243;n de configuraci&#243;n de alarma</comment>
+            </column>
+        </property>
+        <property name="usrCrea" type="string">
+            <column name="usr_crea" length="10" not-null="true">
+                <comment>usuario que crea registro</comment>
+            </column>
+        </property>
+        <property name="fchCrea" type="timestamp">
+            <column name="fch_crea" length="29" not-null="true">
+                <comment>fecha creacion de registro</comment>
+            </column>
+        </property>
+        <property name="usrModi" type="string">
+            <column name="usr_modi" length="10">
+                <comment>usuario que modifica registro</comment>
+            </column>
+        </property>
+        <property name="fchModi" type="timestamp">
+            <column name="fch_modi" length="29">
+                <comment>fecha modificacion de registro</comment>
+            </column>
+        </property>
+        <property name="idEsta" type="int">
+            <column name="id_esta" not-null="true">
+                <comment>fk - id estatus de la alerta</comment>
+            </column>
+        </property>
+        <property name="idTipo" type="int">
+            <column name="id_tipo" not-null="true">
+                <comment>fk - id tipo de alerta</comment>
+            </column>
+        </property>
+        <property name="tiemAlto" type="timestamp">
+            <column name="tiem_alto" length="29">
+                <comment>Tiempo de la alarma</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 5/08/2015 10:23:15 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.mx.teknei.pcabordo.lib.entities.SfmoTipu" table="sfmo_tipu" schema="sitm" optimistic-lock="version">
+        <comment>Tabla para tipos de puntos (Estaciones, Autubuses y cruces) SICOFT</comment>
+        <id name="idTpun" type="int">
+            <column name="id_tpun" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="sflnLin" class="com.mx.teknei.pcabordo.lib.entities.SflnLin" fetch="select">
+            <column name="id_lin">
+                <comment>FK tabla lineas</comment>
+            </column>
+        </many-to-one>
+        <property name="tipoPunt" type="string">
+            <column name="tipo_punt" length="55">
+                <comment>tipo de punto, estacion, cruce, path</comment>
+            </column>
+        </property>
+        <property name="latd" type="java.lang.Double">
+            <column name="latd" precision="17" scale="17">
+                <comment>latitud correspondiente al tipo de punto</comment>
+            </column>
+        </property>
+        <property name="lont" type="java.lang.Double">
+            <column name="lont" precision="17" scale="17">
+                <comment>longitud correspondiente al tipo de punto</comment>
+            </column>
+        </property>
+        <property name="fecRegs" type="timestamp">
+            <column name="fec_regs" length="29">
+                <comment>fecha de registro de la franja</comment>
+            </column>
+        </property>
+        <property name="idEsta" type="int">
+            <column name="id_esta" not-null="true">
+                <comment>fk - estatus</comment>
+            </column>
+        </property>
+        <property name="idTipo" type="java.lang.Integer">
+            <column name="id_tipo">
+                <comment>fk - id Tipo de Cat&#225;logo</comment>
+            </column>
+        </property>
+        <property name="usrCrea" type="string">
+            <column name="usr_crea" length="10" not-null="true">
+                <comment>Nombre del usuario que cre&#243; el registro</comment>
+            </column>
+        </property>
+        <property name="fchCrea" type="timestamp">
+            <column name="fch_crea" length="29" not-null="true">
+                <comment>Fecha de creaci&#243;n del registro</comment>
+            </column>
+        </property>
+        <property name="usrModi" type="string">
+            <column name="usr_modi" length="10">
+                <comment>Nombre del usuario que modific&#243; el registro</comment>
+            </column>
+        </property>
+        <property name="fchModi" type="timestamp">
+            <column name="fch_modi" length="29">
+                <comment>Fecha de modificaci&#243;n del registro</comment>
+            </column>
+        </property>
+        <property name="idConSis" type="java.lang.Integer">
+            <column name="id_con_sis" />
+        </property>
+    </class>
+</hibernate-mapping>
