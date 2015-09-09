@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 5/08/2015 10:23:15 AM by Hibernate Tools 4.3.1 -->
+<!-- Generated 9/09/2015 12:08:40 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.mx.teknei.pcabordo.lib.entities.SfmoReceNave" table="sfmo_rece_nave" schema="sitm" optimistic-lock="version">
         <comment>Tabla del receptor de Navegaci&#243;n, SICOFT</comment>
@@ -97,13 +97,5 @@
         <property name="idConSis" type="java.lang.Integer">
             <column name="id_con_sis" />
         </property>
-        <set name="sfpfItins" table="sfpf_itin" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="id_rece_nave">
-                    <comment>FK tabla receptor de navegacion</comment>
-                </column>
-            </key>
-            <one-to-many class="com.mx.teknei.pcabordo.lib.entities.SfpfItin" />
-        </set>
     </class>
 </hibernate-mapping>

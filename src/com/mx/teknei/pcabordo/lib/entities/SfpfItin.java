@@ -1,5 +1,5 @@
 package com.mx.teknei.pcabordo.lib.entities;
-// Generated 5/08/2015 10:23:13 AM by Hibernate Tools 4.3.1
+// Generated 9/09/2015 12:08:38 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -16,7 +16,6 @@ public class SfpfItin  implements java.io.Serializable {
      private SfcrVehiCond sfcrVehiCond;
      private SfesEst sfesEstByIdEstaOrig;
      private SfesEst sfesEstByIdEstaDest;
-     private SfmoReceNave sfmoReceNave;
      private SfruRuta sfruRuta;
      private SfvhVehi sfvhVehi;
      private Date horaSaliItin;
@@ -24,6 +23,7 @@ public class SfpfItin  implements java.io.Serializable {
      private Date horaSaliRealItin;
      private Date horaLlegRealItin;
      private String direItin;
+     private Integer idReceNave;
      private String usrCrea;
      private Date fchCrea;
      private String usrModi;
@@ -33,6 +33,7 @@ public class SfpfItin  implements java.io.Serializable {
      private Integer idConSis;
      private Integer idTipoLin;
      private Integer idCond;
+     private Integer numVehi;
      private Set sfdtDitis = new HashSet(0);
 
     public SfpfItin() {
@@ -45,12 +46,11 @@ public class SfpfItin  implements java.io.Serializable {
         this.fchCrea = fchCrea;
         this.idEsta = idEsta;
     }
-    public SfpfItin(int idItin, SfcrVehiCond sfcrVehiCond, SfesEst sfesEstByIdEstaOrig, SfesEst sfesEstByIdEstaDest, SfmoReceNave sfmoReceNave, SfruRuta sfruRuta, SfvhVehi sfvhVehi, Date horaSaliItin, Date horaLlegItin, Date horaSaliRealItin, Date horaLlegRealItin, String direItin, String usrCrea, Date fchCrea, String usrModi, Date fchModi, int idEsta, Integer idTipo, Integer idConSis, Integer idTipoLin, Integer idCond, Set sfdtDitis) {
+    public SfpfItin(int idItin, SfcrVehiCond sfcrVehiCond, SfesEst sfesEstByIdEstaOrig, SfesEst sfesEstByIdEstaDest, SfruRuta sfruRuta, SfvhVehi sfvhVehi, Date horaSaliItin, Date horaLlegItin, Date horaSaliRealItin, Date horaLlegRealItin, String direItin, Integer idReceNave, String usrCrea, Date fchCrea, String usrModi, Date fchModi, int idEsta, Integer idTipo, Integer idConSis, Integer idTipoLin, Integer idCond, Integer numVehi, Set sfdtDitis) {
        this.idItin = idItin;
        this.sfcrVehiCond = sfcrVehiCond;
        this.sfesEstByIdEstaOrig = sfesEstByIdEstaOrig;
        this.sfesEstByIdEstaDest = sfesEstByIdEstaDest;
-       this.sfmoReceNave = sfmoReceNave;
        this.sfruRuta = sfruRuta;
        this.sfvhVehi = sfvhVehi;
        this.horaSaliItin = horaSaliItin;
@@ -58,6 +58,7 @@ public class SfpfItin  implements java.io.Serializable {
        this.horaSaliRealItin = horaSaliRealItin;
        this.horaLlegRealItin = horaLlegRealItin;
        this.direItin = direItin;
+       this.idReceNave = idReceNave;
        this.usrCrea = usrCrea;
        this.fchCrea = fchCrea;
        this.usrModi = usrModi;
@@ -67,6 +68,7 @@ public class SfpfItin  implements java.io.Serializable {
        this.idConSis = idConSis;
        this.idTipoLin = idTipoLin;
        this.idCond = idCond;
+       this.numVehi = numVehi;
        this.sfdtDitis = sfdtDitis;
     }
    
@@ -97,13 +99,6 @@ public class SfpfItin  implements java.io.Serializable {
     
     public void setSfesEstByIdEstaDest(SfesEst sfesEstByIdEstaDest) {
         this.sfesEstByIdEstaDest = sfesEstByIdEstaDest;
-    }
-    public SfmoReceNave getSfmoReceNave() {
-        return this.sfmoReceNave;
-    }
-    
-    public void setSfmoReceNave(SfmoReceNave sfmoReceNave) {
-        this.sfmoReceNave = sfmoReceNave;
     }
     public SfruRuta getSfruRuta() {
         return this.sfruRuta;
@@ -153,6 +148,13 @@ public class SfpfItin  implements java.io.Serializable {
     
     public void setDireItin(String direItin) {
         this.direItin = direItin;
+    }
+    public Integer getIdReceNave() {
+        return this.idReceNave;
+    }
+    
+    public void setIdReceNave(Integer idReceNave) {
+        this.idReceNave = idReceNave;
     }
     public String getUsrCrea() {
         return this.usrCrea;
@@ -216,6 +218,13 @@ public class SfpfItin  implements java.io.Serializable {
     
     public void setIdCond(Integer idCond) {
         this.idCond = idCond;
+    }
+    public Integer getNumVehi() {
+        return this.numVehi;
+    }
+    
+    public void setNumVehi(Integer numVehi) {
+        this.numVehi = numVehi;
     }
     public Set getSfdtDitis() {
         return this.sfdtDitis;

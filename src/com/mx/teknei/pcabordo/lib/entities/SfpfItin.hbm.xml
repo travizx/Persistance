@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 5/08/2015 10:23:15 AM by Hibernate Tools 4.3.1 -->
+<!-- Generated 9/09/2015 12:08:40 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.mx.teknei.pcabordo.lib.entities.SfpfItin" table="sfpf_itin" schema="sitm" optimistic-lock="version">
         <comment>tabla para itinerario, programaci&#243;n de Flotas</comment>
@@ -22,11 +22,6 @@
         <many-to-one name="sfesEstByIdEstaDest" class="com.mx.teknei.pcabordo.lib.entities.SfesEst" fetch="select">
             <column name="id_esta_dest">
                 <comment>FK estacion destino</comment>
-            </column>
-        </many-to-one>
-        <many-to-one name="sfmoReceNave" class="com.mx.teknei.pcabordo.lib.entities.SfmoReceNave" fetch="select">
-            <column name="id_rece_nave">
-                <comment>FK tabla receptor de navegacion</comment>
             </column>
         </many-to-one>
         <many-to-one name="sfruRuta" class="com.mx.teknei.pcabordo.lib.entities.SfruRuta" fetch="select">
@@ -62,6 +57,11 @@
         <property name="direItin" type="string">
             <column name="dire_itin" length="55">
                 <comment>direcci&#243;n en la cual circula el veh&#237;culo</comment>
+            </column>
+        </property>
+        <property name="idReceNave" type="java.lang.Integer">
+            <column name="id_rece_nave">
+                <comment>FK tabla receptor de navegacion</comment>
             </column>
         </property>
         <property name="usrCrea" type="string">
@@ -105,6 +105,11 @@
         <property name="idCond" type="java.lang.Integer">
             <column name="id_cond">
                 <comment>FK identificador de tabla conductor</comment>
+            </column>
+        </property>
+        <property name="numVehi" type="java.lang.Integer">
+            <column name="num_vehi">
+                <comment>numero de vehiculos que seran asignados</comment>
             </column>
         </property>
         <set name="sfdtDitis" table="sfdt_diti" inverse="true" lazy="true" fetch="select">

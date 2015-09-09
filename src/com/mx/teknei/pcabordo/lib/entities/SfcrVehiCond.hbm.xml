@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 5/08/2015 10:23:15 AM by Hibernate Tools 4.3.1 -->
+<!-- Generated 9/09/2015 12:08:40 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.mx.teknei.pcabordo.lib.entities.SfcrVehiCond" table="sfcr_vehi_cond" schema="sitm" optimistic-lock="version">
         <comment>tabla de cruce d&#243;nde guardaremos id_cond e id_vehi en la cual se realizar&#225; la asignaci&#243;n conductor/veh&#237;culo</comment>
@@ -26,8 +26,36 @@
         </property>
         <property name="stat" type="java.lang.Boolean">
             <column name="stat">
-                <comment>Estatus</comment>
+                <comment>Status para saber si un conductor esta logeado o no</comment>
             </column>
+        </property>
+        <property name="userCrea" type="string">
+            <column name="user_crea" length="10" not-null="true">
+                <comment>Nombre del usuario que cre&#243; el registro</comment>
+            </column>
+        </property>
+        <property name="usrModi" type="string">
+            <column name="usr_modi" length="10">
+                <comment>Nombre del usuario que modifico el registro</comment>
+            </column>
+        </property>
+        <property name="fchModi" type="timestamp">
+            <column name="fch_modi" length="29">
+                <comment>Fecha de modificaci&#243;n del registro</comment>
+            </column>
+        </property>
+        <property name="idEsta" type="java.lang.Integer">
+            <column name="id_esta">
+                <comment>CATA - Estado de actualizaci&#243;n del registro</comment>
+            </column>
+        </property>
+        <property name="idTipo" type="java.lang.Integer">
+            <column name="id_tipo">
+                <comment>CATA - Tipo del registro</comment>
+            </column>
+        </property>
+        <property name="idConSis" type="java.lang.Integer">
+            <column name="id_con_sis" />
         </property>
         <set name="sfpfItins" table="sfpf_itin" inverse="true" lazy="true" fetch="select">
             <key>

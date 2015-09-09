@@ -1,5 +1,5 @@
 package com.mx.teknei.pcabordo.lib.entities;
-// Generated 5/08/2015 10:23:13 AM by Hibernate Tools 4.3.1
+// Generated 9/09/2015 12:08:38 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -16,21 +16,35 @@ public class SfgfHoseFlot  implements java.io.Serializable {
      private Date horaFin;
      private Date fchOper;
      private String descServ;
+     private String userCrea;
+     private Date fchCrea;
+     private String usrModi;
+     private Date fchModi;
+     private Integer idEsta;
+     private Integer idTipo;
 
     public SfgfHoseFlot() {
     }
 
 	
-    public SfgfHoseFlot(int idHoraServ) {
+    public SfgfHoseFlot(int idHoraServ, String userCrea, Date fchCrea) {
         this.idHoraServ = idHoraServ;
+        this.userCrea = userCrea;
+        this.fchCrea = fchCrea;
     }
-    public SfgfHoseFlot(int idHoraServ, SfpcCata sfpcCata, Date horaInic, Date horaFin, Date fchOper, String descServ) {
+    public SfgfHoseFlot(int idHoraServ, SfpcCata sfpcCata, Date horaInic, Date horaFin, Date fchOper, String descServ, String userCrea, Date fchCrea, String usrModi, Date fchModi, Integer idEsta, Integer idTipo) {
        this.idHoraServ = idHoraServ;
        this.sfpcCata = sfpcCata;
        this.horaInic = horaInic;
        this.horaFin = horaFin;
        this.fchOper = fchOper;
        this.descServ = descServ;
+       this.userCrea = userCrea;
+       this.fchCrea = fchCrea;
+       this.usrModi = usrModi;
+       this.fchModi = fchModi;
+       this.idEsta = idEsta;
+       this.idTipo = idTipo;
     }
    
     public int getIdHoraServ() {
@@ -74,6 +88,48 @@ public class SfgfHoseFlot  implements java.io.Serializable {
     
     public void setDescServ(String descServ) {
         this.descServ = descServ;
+    }
+    public String getUserCrea() {
+        return this.userCrea;
+    }
+    
+    public void setUserCrea(String userCrea) {
+        this.userCrea = userCrea;
+    }
+    public Date getFchCrea() {
+        return this.fchCrea;
+    }
+    
+    public void setFchCrea(Date fchCrea) {
+        this.fchCrea = fchCrea;
+    }
+    public String getUsrModi() {
+        return this.usrModi;
+    }
+    
+    public void setUsrModi(String usrModi) {
+        this.usrModi = usrModi;
+    }
+    public Date getFchModi() {
+        return this.fchModi;
+    }
+    
+    public void setFchModi(Date fchModi) {
+        this.fchModi = fchModi;
+    }
+    public Integer getIdEsta() {
+        return this.idEsta;
+    }
+    
+    public void setIdEsta(Integer idEsta) {
+        this.idEsta = idEsta;
+    }
+    public Integer getIdTipo() {
+        return this.idTipo;
+    }
+    
+    public void setIdTipo(Integer idTipo) {
+        this.idTipo = idTipo;
     }
 
 

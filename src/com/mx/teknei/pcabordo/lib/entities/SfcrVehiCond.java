@@ -1,5 +1,5 @@
 package com.mx.teknei.pcabordo.lib.entities;
-// Generated 5/08/2015 10:23:13 AM by Hibernate Tools 4.3.1
+// Generated 9/09/2015 12:08:38 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -17,21 +17,34 @@ public class SfcrVehiCond  implements java.io.Serializable {
      private SfvhVehi sfvhVehi;
      private Date fchCrea;
      private Boolean stat;
+     private String userCrea;
+     private String usrModi;
+     private Date fchModi;
+     private Integer idEsta;
+     private Integer idTipo;
+     private Integer idConSis;
      private Set sfpfItins = new HashSet(0);
 
     public SfcrVehiCond() {
     }
 
 	
-    public SfcrVehiCond(int idVehiCond) {
+    public SfcrVehiCond(int idVehiCond, String userCrea) {
         this.idVehiCond = idVehiCond;
+        this.userCrea = userCrea;
     }
-    public SfcrVehiCond(int idVehiCond, SfemCond sfemCond, SfvhVehi sfvhVehi, Date fchCrea, Boolean stat, Set sfpfItins) {
+    public SfcrVehiCond(int idVehiCond, SfemCond sfemCond, SfvhVehi sfvhVehi, Date fchCrea, Boolean stat, String userCrea, String usrModi, Date fchModi, Integer idEsta, Integer idTipo, Integer idConSis, Set sfpfItins) {
        this.idVehiCond = idVehiCond;
        this.sfemCond = sfemCond;
        this.sfvhVehi = sfvhVehi;
        this.fchCrea = fchCrea;
        this.stat = stat;
+       this.userCrea = userCrea;
+       this.usrModi = usrModi;
+       this.fchModi = fchModi;
+       this.idEsta = idEsta;
+       this.idTipo = idTipo;
+       this.idConSis = idConSis;
        this.sfpfItins = sfpfItins;
     }
    
@@ -69,6 +82,48 @@ public class SfcrVehiCond  implements java.io.Serializable {
     
     public void setStat(Boolean stat) {
         this.stat = stat;
+    }
+    public String getUserCrea() {
+        return this.userCrea;
+    }
+    
+    public void setUserCrea(String userCrea) {
+        this.userCrea = userCrea;
+    }
+    public String getUsrModi() {
+        return this.usrModi;
+    }
+    
+    public void setUsrModi(String usrModi) {
+        this.usrModi = usrModi;
+    }
+    public Date getFchModi() {
+        return this.fchModi;
+    }
+    
+    public void setFchModi(Date fchModi) {
+        this.fchModi = fchModi;
+    }
+    public Integer getIdEsta() {
+        return this.idEsta;
+    }
+    
+    public void setIdEsta(Integer idEsta) {
+        this.idEsta = idEsta;
+    }
+    public Integer getIdTipo() {
+        return this.idTipo;
+    }
+    
+    public void setIdTipo(Integer idTipo) {
+        this.idTipo = idTipo;
+    }
+    public Integer getIdConSis() {
+        return this.idConSis;
+    }
+    
+    public void setIdConSis(Integer idConSis) {
+        this.idConSis = idConSis;
     }
     public Set getSfpfItins() {
         return this.sfpfItins;

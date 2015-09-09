@@ -1,5 +1,5 @@
 package com.mx.teknei.pcabordo.lib.entities;
-// Generated 5/08/2015 10:23:13 AM by Hibernate Tools 4.3.1
+// Generated 9/09/2015 12:08:38 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -12,9 +12,9 @@ import java.util.Set;
 public class SfemCond  implements java.io.Serializable {
 
 
-     private int idEmpCond;
+     private int idCond;
      private SfpcCata sfpcCata;
-     private Integer numLic;
+     private String numLic;
      private Date fchVen;
      private Integer idTipoLic;
      private String userCond;
@@ -23,19 +23,21 @@ public class SfemCond  implements java.io.Serializable {
      private Date fchCrea;
      private String usrModi;
      private Date fchModi;
+     private Integer idEsta;
+     private Integer idTipo;
      private Set sfcrVehiConds = new HashSet(0);
 
     public SfemCond() {
     }
 
 	
-    public SfemCond(int idEmpCond, String usrCrea, Date fchCrea) {
-        this.idEmpCond = idEmpCond;
+    public SfemCond(int idCond, String usrCrea, Date fchCrea) {
+        this.idCond = idCond;
         this.usrCrea = usrCrea;
         this.fchCrea = fchCrea;
     }
-    public SfemCond(int idEmpCond, SfpcCata sfpcCata, Integer numLic, Date fchVen, Integer idTipoLic, String userCond, String passCond, String usrCrea, Date fchCrea, String usrModi, Date fchModi, Set sfcrVehiConds) {
-       this.idEmpCond = idEmpCond;
+    public SfemCond(int idCond, SfpcCata sfpcCata, String numLic, Date fchVen, Integer idTipoLic, String userCond, String passCond, String usrCrea, Date fchCrea, String usrModi, Date fchModi, Integer idEsta, Integer idTipo, Set sfcrVehiConds) {
+       this.idCond = idCond;
        this.sfpcCata = sfpcCata;
        this.numLic = numLic;
        this.fchVen = fchVen;
@@ -46,15 +48,17 @@ public class SfemCond  implements java.io.Serializable {
        this.fchCrea = fchCrea;
        this.usrModi = usrModi;
        this.fchModi = fchModi;
+       this.idEsta = idEsta;
+       this.idTipo = idTipo;
        this.sfcrVehiConds = sfcrVehiConds;
     }
    
-    public int getIdEmpCond() {
-        return this.idEmpCond;
+    public int getIdCond() {
+        return this.idCond;
     }
     
-    public void setIdEmpCond(int idEmpCond) {
-        this.idEmpCond = idEmpCond;
+    public void setIdCond(int idCond) {
+        this.idCond = idCond;
     }
     public SfpcCata getSfpcCata() {
         return this.sfpcCata;
@@ -63,11 +67,11 @@ public class SfemCond  implements java.io.Serializable {
     public void setSfpcCata(SfpcCata sfpcCata) {
         this.sfpcCata = sfpcCata;
     }
-    public Integer getNumLic() {
+    public String getNumLic() {
         return this.numLic;
     }
     
-    public void setNumLic(Integer numLic) {
+    public void setNumLic(String numLic) {
         this.numLic = numLic;
     }
     public Date getFchVen() {
@@ -125,6 +129,20 @@ public class SfemCond  implements java.io.Serializable {
     
     public void setFchModi(Date fchModi) {
         this.fchModi = fchModi;
+    }
+    public Integer getIdEsta() {
+        return this.idEsta;
+    }
+    
+    public void setIdEsta(Integer idEsta) {
+        this.idEsta = idEsta;
+    }
+    public Integer getIdTipo() {
+        return this.idTipo;
+    }
+    
+    public void setIdTipo(Integer idTipo) {
+        this.idTipo = idTipo;
     }
     public Set getSfcrVehiConds() {
         return this.sfcrVehiConds;

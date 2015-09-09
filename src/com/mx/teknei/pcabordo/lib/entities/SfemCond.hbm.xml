@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 5/08/2015 10:23:15 AM by Hibernate Tools 4.3.1 -->
+<!-- Generated 9/09/2015 12:08:40 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.mx.teknei.pcabordo.lib.entities.SfemCond" table="sfem_cond" schema="sitm" optimistic-lock="version">
-        <id name="idEmpCond" type="int">
-            <column name="id_emp_cond" />
+        <id name="idCond" type="int">
+            <column name="id_cond" />
             <generator class="assigned" />
         </id>
         <many-to-one name="sfpcCata" class="com.mx.teknei.pcabordo.lib.entities.SfpcCata" fetch="select">
@@ -13,8 +13,8 @@
                 <comment>Este es un campo para una validaci&#243;n en el cual el conductor puede llegar a bloquearse por muchos intentos de Logeo en un PC Abordo.</comment>
             </column>
         </many-to-one>
-        <property name="numLic" type="java.lang.Integer">
-            <column name="num_lic">
+        <property name="numLic" type="string">
+            <column name="num_lic" length="10">
                 <comment>Numero de licencia</comment>
             </column>
         </property>
@@ -56,6 +56,16 @@
         <property name="fchModi" type="timestamp">
             <column name="fch_modi" length="29">
                 <comment>fecha de modificaci&#243;n del registro</comment>
+            </column>
+        </property>
+        <property name="idEsta" type="java.lang.Integer">
+            <column name="id_esta">
+                <comment>FK_sfpc_cata - Estado de actualizaci&#243;n del registro</comment>
+            </column>
+        </property>
+        <property name="idTipo" type="java.lang.Integer">
+            <column name="id_tipo">
+                <comment>FK_sfpc_cata - Tipo del registro</comment>
             </column>
         </property>
         <set name="sfcrVehiConds" table="sfcr_vehi_cond" inverse="true" lazy="true" fetch="select">

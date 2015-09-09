@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 5/08/2015 10:23:15 AM by Hibernate Tools 4.3.1 -->
+<!-- Generated 9/09/2015 12:08:40 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.mx.teknei.pcabordo.lib.entities.CctmArpo" table="cctm_arpo" schema="sitm" optimistic-lock="version">
         <comment>Tabla de Prioridades del Monitor de Alarmas</comment>
