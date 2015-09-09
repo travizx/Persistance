@@ -13,5 +13,6 @@ public class Constantes {
     public static final String TIPO_PUNTO_ESTACION = "E";
     public static final String TIPO_PUNTO_CRUCE = "C";
     public static final String TIPO_PUNTO_CAMINO = "R";
-    public static final String TIPO_PREUBA = "NALGAS" ;
+    public static final String TIPO_PREUBA = "xlm" ;
+    public String ALGO ="ALGO";
 }
