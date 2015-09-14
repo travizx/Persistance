@@ -15,6 +15,8 @@ import java.util.List;
 public interface IRecpNavService {
     public void GuardarRecpNav(SfmoReceNave recp);
     public void ActualizarRecpNav(SfmoReceNave recp);
-    public void EliminarCursos(SfmoReceNave recp);
+    public void Eliminar(SfmoReceNave recp);
     public List<SfmoReceNave> ListarRecpNav();
+    SfmoReceNave buscarPorVehiculo(int idVehi);
+    SfmoReceNave buscarPorRecpNav(int idRecpNav);
 }

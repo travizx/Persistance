@@ -37,13 +37,23 @@ public class RecpNavService implements IRecpNavService{
     }
 
     @Override
-    public void EliminarCursos(SfmoReceNave recp) {
+    public void Eliminar(SfmoReceNave recp) {
         recpDAO.erase(recp);
     }
 
     @Override
     public List<SfmoReceNave> ListarRecpNav() {
         return recpDAO.listRecpNav();
+    }
+
+    @Override
+    public SfmoReceNave buscarPorVehiculo(int idVehi) {
+        return recpDAO.findByIdVehi(idVehi);
+    }
+
+    @Override
+    public SfmoReceNave buscarPorRecpNav(int idRecpNav) {
+        return recpDAO.findByIdRecpNav(idRecpNav);
     }
     
 }
