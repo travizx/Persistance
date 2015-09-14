@@ -14,3 +14,4 @@ public interface IHoseFlotService {
     public SfgfHoseFlot buscarPorID(Integer id_hora_flot);
     public List<SfgfHoseFlot> buscarPorFecha(Date date);
 }
+
