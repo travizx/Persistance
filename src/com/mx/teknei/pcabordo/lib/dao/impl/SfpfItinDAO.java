@@ -8,6 +8,7 @@ package com.mx.teknei.pcabordo.lib.dao.impl;
 import static com.mx.teknei.pcabordo.lib.connection.LoadConnection.getSessionFactory;
 import com.mx.teknei.pcabordo.lib.dao.ISfpfItinDAO;
 import com.mx.teknei.pcabordo.lib.entities.SfpfItin;
+import com.mx.teknei.pcabordo.lib.entities.SfvhVehi;
 import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.Query;
@@ -21,27 +22,7 @@ import org.hibernate.Transaction;
  */
 public class SfpfItinDAO extends GenericDaoImp<SfpfItin, Long> implements ISfpfItinDAO{
 
-    @Override
-    public List<SfpfItin> listSfpfItin() {
-        
-   List<SfpfItin> itin = new ArrayList<>();
-        Transaction trans = null;
-        Session session = getSessionFactory().openSession();
-        try {
-            trans = session.beginTransaction();
-            itin = session.createQuery("from SfpfItin").list();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }finally{
-            session.flush();
-            session.close();
-        }
-        return itin;
-        
-        
-        
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
 
     @Override
     public List<SfpfItin> getIdItinForEsta(int idEsta) {
@@ -71,6 +52,26 @@ public class SfpfItinDAO extends GenericDaoImp<SfpfItin, Long> implements ISfpfI
         }
         
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+    @Override
+    public List<SfpfItin> listaItin() {
+         List<SfpfItin> itin = new ArrayList<>();
+        Transaction trans = null;
+        Session session = getSessionFactory().openSession();
+        try {
+            trans = session.beginTransaction();
+            itin = session.createQuery("from SfpfItin").list();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally{
+            session.flush();
+            session.close();
+        }
+        return itin;
+        
+        
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     }
     
 
