@@ -9,20 +9,27 @@ import com.mx.teknei.pcabordo.lib.dao.ITipoPuntDAO;
 import com.mx.teknei.pcabordo.lib.dao.impl.TipoPuntDAO;
 import com.mx.teknei.pcabordo.lib.entities.SfmoTipu;
 import com.mx.teknei.pcabordo.lib.service.ITipoPuntService;
+import java.util.List;
 
 /**
  *
  * @author hjcacho
  */
-public class TipoPuntService implements ITipoPuntService{
+public class TipoPuntService implements ITipoPuntService {
+
     private ITipoPuntDAO tipoPunto;
-    
-    public TipoPuntService(){
+
+    public TipoPuntService() {
         tipoPunto = new TipoPuntDAO();
     }
 
     @Override
     public void GuardadPunto(SfmoTipu punto) {
         tipoPunto.add(punto);
-    } 
+    }
+
+    @Override
+    public List<SfmoTipu> ListarTipoPunto() {
+        return tipoPunto.listTipoPunto();
+    }
 }

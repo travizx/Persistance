@@ -17,28 +17,24 @@ import java.util.List;
 public class SfpfItinService implements ISfpfItinService {
 
     @Override
-    public void GuardarItinera(SfpfItin itin) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
     public void ActualizarItinera(SfpfItin itin) {
+        
+        
+        
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<SfpfItin> ListaItin() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void EliminarItinera(SfpfItin itin) {
+    public List<SfpfItin> ObtenerPorIdEsta(int idEsta) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public List<SfmoReceNave> ListarItinera() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
-    @Override
-    public List<SfmoReceNave> ObtenerPorIdEsta(int idEsta) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+
     
 }
