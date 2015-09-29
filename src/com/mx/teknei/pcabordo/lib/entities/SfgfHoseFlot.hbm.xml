@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 9/09/2015 12:08:40 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated 29/09/2015 01:25:14 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.mx.teknei.pcabordo.lib.entities.SfgfHoseFlot" table="sfgf_hose_flot" schema="sitm" optimistic-lock="version">
         <comment>Tabla de gesti&#243;n de flotas donde se registrar&#225;n los distintos horarios de servicio que ofrece el sistema RUTA</comment>
@@ -9,11 +9,6 @@
             <column name="id_hora_serv" />
             <generator class="assigned" />
         </id>
-        <many-to-one name="sfpcCata" class="com.mx.teknei.pcabordo.lib.entities.SfpcCata" fetch="select">
-            <column name="tipo_dia">
-                <comment>Tipo de dia en el que se brinda el servicio de operaci&#243;n ( festivo, laboral, dominical, especial)</comment>
-            </column>
-        </many-to-one>
         <property name="horaInic" type="timestamp">
             <column name="hora_inic" length="29">
                 <comment>Horario de inicio de operacion del sistema RUTA</comment>
@@ -27,6 +22,11 @@
         <property name="fchOper" type="timestamp">
             <column name="fch_oper" length="29">
                 <comment>Fecha de operaci&#243;n en la que se ofrece el servicio de operaci&#243;n</comment>
+            </column>
+        </property>
+        <property name="tipoDia" type="java.lang.Integer">
+            <column name="tipo_dia">
+                <comment>Tipo de dia en el que se brinda el servicio de operaci&#243;n ( festivo, laboral, dominical, especial)</comment>
             </column>
         </property>
         <property name="descServ" type="string">

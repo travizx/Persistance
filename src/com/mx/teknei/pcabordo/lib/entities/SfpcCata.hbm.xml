@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 9/09/2015 12:08:40 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated 29/09/2015 01:25:14 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.mx.teknei.pcabordo.lib.entities.SfpcCata" table="sfpc_cata" schema="sitm" optimistic-lock="version">
         <comment>Tabla que contiene unos cat&#225;logos de Validadciones para el conductor.</comment>
@@ -10,7 +10,7 @@
             <generator class="assigned" />
         </id>
         <property name="codCata" type="string">
-            <column name="cod_cata" length="10" not-null="true">
+            <column name="cod_cata" length="15" not-null="true">
                 <comment>Nombre del Cat&#225;logo</comment>
             </column>
         </property>
@@ -44,21 +44,13 @@
                 <comment>fecha modificacion de registro</comment>
             </column>
         </property>
-        <set name="sfgfHoseFlots" table="sfgf_hose_flot" inverse="true" lazy="true" fetch="select">
+        <set name="sfmoHoraSeops" table="sfmo_hora_seop" inverse="true" lazy="true" fetch="select">
             <key>
-                <column name="tipo_dia">
-                    <comment>Tipo de dia en el que se brinda el servicio de operaci&#243;n ( festivo, laboral, dominical, especial)</comment>
+                <column name="id_tipo_dia">
+                    <comment>Describe el tipo de d&#237;a con el cual tendr&#225;n su horario operativo.</comment>
                 </column>
             </key>
-            <one-to-many class="com.mx.teknei.pcabordo.lib.entities.SfgfHoseFlot" />
-        </set>
-        <set name="sfemConds" table="sfem_cond" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="stat_cond">
-                    <comment>Este es un campo para una validaci&#243;n en el cual el conductor puede llegar a bloquearse por muchos intentos de Logeo en un PC Abordo.</comment>
-                </column>
-            </key>
-            <one-to-many class="com.mx.teknei.pcabordo.lib.entities.SfemCond" />
+            <one-to-many class="com.mx.teknei.pcabordo.lib.entities.SfmoHoraSeop" />
         </set>
     </class>
 </hibernate-mapping>

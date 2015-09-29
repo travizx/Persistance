@@ -1,5 +1,5 @@
 package com.mx.teknei.pcabordo.lib.entities;
-// Generated 9/09/2015 12:08:38 PM by Hibernate Tools 4.3.1
+// Generated 29/09/2015 01:25:12 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -11,10 +11,10 @@ public class SfgfHoseFlot  implements java.io.Serializable {
 
 
      private int idHoraServ;
-     private SfpcCata sfpcCata;
      private Date horaInic;
      private Date horaFin;
      private Date fchOper;
+     private Integer tipoDia;
      private String descServ;
      private String userCrea;
      private Date fchCrea;
@@ -32,12 +32,12 @@ public class SfgfHoseFlot  implements java.io.Serializable {
         this.userCrea = userCrea;
         this.fchCrea = fchCrea;
     }
-    public SfgfHoseFlot(int idHoraServ, SfpcCata sfpcCata, Date horaInic, Date horaFin, Date fchOper, String descServ, String userCrea, Date fchCrea, String usrModi, Date fchModi, Integer idEsta, Integer idTipo) {
+    public SfgfHoseFlot(int idHoraServ, Date horaInic, Date horaFin, Date fchOper, Integer tipoDia, String descServ, String userCrea, Date fchCrea, String usrModi, Date fchModi, Integer idEsta, Integer idTipo) {
        this.idHoraServ = idHoraServ;
-       this.sfpcCata = sfpcCata;
        this.horaInic = horaInic;
        this.horaFin = horaFin;
        this.fchOper = fchOper;
+       this.tipoDia = tipoDia;
        this.descServ = descServ;
        this.userCrea = userCrea;
        this.fchCrea = fchCrea;
@@ -53,13 +53,6 @@ public class SfgfHoseFlot  implements java.io.Serializable {
     
     public void setIdHoraServ(int idHoraServ) {
         this.idHoraServ = idHoraServ;
-    }
-    public SfpcCata getSfpcCata() {
-        return this.sfpcCata;
-    }
-    
-    public void setSfpcCata(SfpcCata sfpcCata) {
-        this.sfpcCata = sfpcCata;
     }
     public Date getHoraInic() {
         return this.horaInic;
@@ -81,6 +74,13 @@ public class SfgfHoseFlot  implements java.io.Serializable {
     
     public void setFchOper(Date fchOper) {
         this.fchOper = fchOper;
+    }
+    public Integer getTipoDia() {
+        return this.tipoDia;
+    }
+    
+    public void setTipoDia(Integer tipoDia) {
+        this.tipoDia = tipoDia;
     }
     public String getDescServ() {
         return this.descServ;

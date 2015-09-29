@@ -1,5 +1,5 @@
 package com.mx.teknei.pcabordo.lib.entities;
-// Generated 9/09/2015 12:08:38 PM by Hibernate Tools 4.3.1
+// Generated 29/09/2015 01:25:12 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -20,8 +20,7 @@ public class SfpcCata  implements java.io.Serializable {
      private Date fchCrea;
      private String usrModi;
      private Date fchModi;
-     private Set sfgfHoseFlots = new HashSet(0);
-     private Set sfemConds = new HashSet(0);
+     private Set sfmoHoraSeops = new HashSet(0);
 
     public SfpcCata() {
     }
@@ -35,7 +34,7 @@ public class SfpcCata  implements java.io.Serializable {
         this.usrCrea = usrCrea;
         this.fchCrea = fchCrea;
     }
-    public SfpcCata(int idCata, String codCata, String codCort, String desCort, String usrCrea, Date fchCrea, String usrModi, Date fchModi, Set sfgfHoseFlots, Set sfemConds) {
+    public SfpcCata(int idCata, String codCata, String codCort, String desCort, String usrCrea, Date fchCrea, String usrModi, Date fchModi, Set sfmoHoraSeops) {
        this.idCata = idCata;
        this.codCata = codCata;
        this.codCort = codCort;
@@ -44,8 +43,7 @@ public class SfpcCata  implements java.io.Serializable {
        this.fchCrea = fchCrea;
        this.usrModi = usrModi;
        this.fchModi = fchModi;
-       this.sfgfHoseFlots = sfgfHoseFlots;
-       this.sfemConds = sfemConds;
+       this.sfmoHoraSeops = sfmoHoraSeops;
     }
    
     public int getIdCata() {
@@ -104,19 +102,12 @@ public class SfpcCata  implements java.io.Serializable {
     public void setFchModi(Date fchModi) {
         this.fchModi = fchModi;
     }
-    public Set getSfgfHoseFlots() {
-        return this.sfgfHoseFlots;
+    public Set getSfmoHoraSeops() {
+        return this.sfmoHoraSeops;
     }
     
-    public void setSfgfHoseFlots(Set sfgfHoseFlots) {
-        this.sfgfHoseFlots = sfgfHoseFlots;
-    }
-    public Set getSfemConds() {
-        return this.sfemConds;
-    }
-    
-    public void setSfemConds(Set sfemConds) {
-        this.sfemConds = sfemConds;
+    public void setSfmoHoraSeops(Set sfmoHoraSeops) {
+        this.sfmoHoraSeops = sfmoHoraSeops;
     }
 
 

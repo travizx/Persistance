@@ -3,40 +3,34 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated 29/09/2015 01:25:14 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="com.mx.teknei.pcabordo.lib.entities.SfdtDiti" table="sfdt_diti" schema="sitm" optimistic-lock="version">
-        <comment>Tabla detalle itinerario</comment>
-        <id name="idDiti" type="int">
-            <column name="id_diti" />
+    <class name="com.mx.teknei.pcabordo.lib.entities.SfmoHoraSeop" table="sfmo_hora_seop" schema="sitm" optimistic-lock="version">
+        <id name="idHoraServOper" type="int">
+            <column name="id_hora_serv_oper" />
             <generator class="assigned" />
         </id>
-        <many-to-one name="sfesEstByIdEsto" class="com.mx.teknei.pcabordo.lib.entities.SfesEst" fetch="select">
-            <column name="id_esto" not-null="true">
-                <comment>FK de tabla estaci&#243;n origen</comment>
+        <many-to-one name="sfpcCata" class="com.mx.teknei.pcabordo.lib.entities.SfpcCata" fetch="select">
+            <column name="id_tipo_dia">
+                <comment>Describe el tipo de d&#237;a con el cual tendr&#225;n su horario operativo.</comment>
             </column>
         </many-to-one>
-        <many-to-one name="sfesEstByIdEstd" class="com.mx.teknei.pcabordo.lib.entities.SfesEst" fetch="select">
-            <column name="id_estd" not-null="true">
-                <comment>FK de estaci&#243;n destino</comment>
-            </column>
-        </many-to-one>
-        <many-to-one name="sfpfItin" class="com.mx.teknei.pcabordo.lib.entities.SfpfItin" fetch="select">
-            <column name="id_itin" not-null="true">
-                <comment>PK de tabla itinerario</comment>
-            </column>
-        </many-to-one>
-        <property name="horEsal" type="timestamp">
-            <column name="hor_esal" length="29" not-null="true">
-                <comment>hora estimada de salida</comment>
+        <property name="nomDia" type="string">
+            <column name="nom_dia">
+                <comment>Nombre del dia</comment>
             </column>
         </property>
-        <property name="horElle" type="timestamp">
-            <column name="hor_elle" length="29" not-null="true">
-                <comment>Hora estimada llegada</comment>
+        <property name="horaInicOper" type="timestamp">
+            <column name="hora_inic_oper" length="29">
+                <comment>Hora de inicio de operacion</comment>
             </column>
         </property>
-        <property name="horaReal" type="timestamp">
-            <column name="hora_real" length="29" not-null="true">
-                <comment>tiempo de llegada real a estaci&#243;n destino</comment>
+        <property name="horaFinOper" type="timestamp">
+            <column name="hora_fin_oper" length="29">
+                <comment>Hora fin de servicios de operaci&#243;n.</comment>
+            </column>
+        </property>
+        <property name="diaDesc" type="string">
+            <column name="dia_desc">
+                <comment>Descripci&#243;n del horario de operaci&#243;n respecto al d&#237;a.</comment>
             </column>
         </property>
         <property name="usrCrea" type="string">
@@ -64,10 +58,13 @@
                 <comment>FK_CCTM_CATA - Estado de actualizaci&#243;n del registro</comment>
             </column>
         </property>
-        <property name="idTipo" type="int">
-            <column name="id_tipo" not-null="true">
+        <property name="idTipo" type="java.lang.Integer">
+            <column name="id_tipo">
                 <comment>FK_CCTM_CATA - Tipo del registro</comment>
             </column>
+        </property>
+        <property name="idConSis" type="java.lang.Integer">
+            <column name="id_con_sis" />
         </property>
     </class>
 </hibernate-mapping>

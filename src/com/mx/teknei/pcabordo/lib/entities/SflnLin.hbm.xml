@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 9/09/2015 12:08:40 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated 29/09/2015 01:25:14 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.mx.teknei.pcabordo.lib.entities.SflnLin" table="sfln_lin" schema="sitm" optimistic-lock="version">
         <comment>Linea del BRT, esta se asocia a una serie de estaciones</comment>

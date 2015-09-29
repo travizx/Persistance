@@ -1,18 +1,13 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 9/09/2015 12:08:40 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated 29/09/2015 01:25:14 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.mx.teknei.pcabordo.lib.entities.SfemCond" table="sfem_cond" schema="sitm" optimistic-lock="version">
         <id name="idCond" type="int">
             <column name="id_cond" />
             <generator class="assigned" />
         </id>
-        <many-to-one name="sfpcCata" class="com.mx.teknei.pcabordo.lib.entities.SfpcCata" fetch="select">
-            <column name="stat_cond">
-                <comment>Este es un campo para una validaci&#243;n en el cual el conductor puede llegar a bloquearse por muchos intentos de Logeo en un PC Abordo.</comment>
-            </column>
-        </many-to-one>
         <property name="numLic" type="string">
             <column name="num_lic" length="10">
                 <comment>Numero de licencia</comment>
@@ -28,14 +23,19 @@
                 <comment>Tipo de licencia</comment>
             </column>
         </property>
-        <property name="userCond" type="string">
+        <property name="userCond" type="java.lang.Integer">
             <column name="user_cond">
                 <comment>Usuario del conductor</comment>
             </column>
         </property>
-        <property name="passCond" type="string">
+        <property name="passCond" type="java.lang.Integer">
             <column name="pass_cond">
                 <comment>Password del conductor</comment>
+            </column>
+        </property>
+        <property name="statCond" type="java.lang.Integer">
+            <column name="stat_cond">
+                <comment>Este es un campo para una validaci&#243;n en el cual el conductor puede llegar a bloquearse por muchos intentos de Logeo en un PC Abordo.</comment>
             </column>
         </property>
         <property name="usrCrea" type="string">

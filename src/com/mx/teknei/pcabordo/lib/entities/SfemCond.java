@@ -1,5 +1,5 @@
 package com.mx.teknei.pcabordo.lib.entities;
-// Generated 9/09/2015 12:08:38 PM by Hibernate Tools 4.3.1
+// Generated 29/09/2015 01:25:12 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -13,12 +13,12 @@ public class SfemCond  implements java.io.Serializable {
 
 
      private int idCond;
-     private SfpcCata sfpcCata;
      private String numLic;
      private Date fchVen;
      private Integer idTipoLic;
-     private String userCond;
-     private String passCond;
+     private Integer userCond;
+     private Integer passCond;
+     private Integer statCond;
      private String usrCrea;
      private Date fchCrea;
      private String usrModi;
@@ -36,14 +36,14 @@ public class SfemCond  implements java.io.Serializable {
         this.usrCrea = usrCrea;
         this.fchCrea = fchCrea;
     }
-    public SfemCond(int idCond, SfpcCata sfpcCata, String numLic, Date fchVen, Integer idTipoLic, String userCond, String passCond, String usrCrea, Date fchCrea, String usrModi, Date fchModi, Integer idEsta, Integer idTipo, Set sfcrVehiConds) {
+    public SfemCond(int idCond, String numLic, Date fchVen, Integer idTipoLic, Integer userCond, Integer passCond, Integer statCond, String usrCrea, Date fchCrea, String usrModi, Date fchModi, Integer idEsta, Integer idTipo, Set sfcrVehiConds) {
        this.idCond = idCond;
-       this.sfpcCata = sfpcCata;
        this.numLic = numLic;
        this.fchVen = fchVen;
        this.idTipoLic = idTipoLic;
        this.userCond = userCond;
        this.passCond = passCond;
+       this.statCond = statCond;
        this.usrCrea = usrCrea;
        this.fchCrea = fchCrea;
        this.usrModi = usrModi;
@@ -59,13 +59,6 @@ public class SfemCond  implements java.io.Serializable {
     
     public void setIdCond(int idCond) {
         this.idCond = idCond;
-    }
-    public SfpcCata getSfpcCata() {
-        return this.sfpcCata;
-    }
-    
-    public void setSfpcCata(SfpcCata sfpcCata) {
-        this.sfpcCata = sfpcCata;
     }
     public String getNumLic() {
         return this.numLic;
@@ -88,19 +81,26 @@ public class SfemCond  implements java.io.Serializable {
     public void setIdTipoLic(Integer idTipoLic) {
         this.idTipoLic = idTipoLic;
     }
-    public String getUserCond() {
+    public Integer getUserCond() {
         return this.userCond;
     }
     
-    public void setUserCond(String userCond) {
+    public void setUserCond(Integer userCond) {
         this.userCond = userCond;
     }
-    public String getPassCond() {
+    public Integer getPassCond() {
         return this.passCond;
     }
     
-    public void setPassCond(String passCond) {
+    public void setPassCond(Integer passCond) {
         this.passCond = passCond;
+    }
+    public Integer getStatCond() {
+        return this.statCond;
+    }
+    
+    public void setStatCond(Integer statCond) {
+        this.statCond = statCond;
     }
     public String getUsrCrea() {
         return this.usrCrea;
