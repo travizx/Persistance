@@ -4,16 +4,19 @@
  * and open the template in the editor.
  */
 package com.mx.teknei.pcabordo.lib.service;
-
 import com.mx.teknei.pcabordo.lib.entities.SfmoReceNave;
-import com.mx.teknei.pcabordo.lib.entities.SfmoTipu;
+import com.mx.teknei.pcabordo.lib.entities.SfpfItin;
 import java.util.List;
 
 /**
  *
- * @author hjcacho
+ * @author ajimenez
  */
-public interface ITipoPuntService {
-    public void GuardadPunto(SfmoTipu punto);
-    public List<SfmoTipu> ListarTipoPunto();
+public interface ISfpfItinService {
+    
+   
+    public void ActualizarItinera(SfpfItin itin);
+    public List<SfpfItin> ListaItin();
+    public List<SfpfItin> ObtenerPorIdEsta(int idEsta);
+    
 }

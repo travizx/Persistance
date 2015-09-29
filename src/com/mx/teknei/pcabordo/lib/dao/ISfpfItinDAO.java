@@ -5,14 +5,16 @@
  */
 package com.mx.teknei.pcabordo.lib.dao;
 
-
-import com.mx.teknei.pcabordo.lib.entities.SfmoTipu;
+import com.mx.teknei.pcabordo.lib.entities.SfpfItin;
 import java.util.List;
 
 /**
  *
- * @author hjcacho
+ * @author ajimenez
  */
-public interface ITipoPuntDAO extends GenericDao<SfmoTipu, Long>{
-    public List<SfmoTipu> listTipoPunto();
+public interface ISfpfItinDAO extends GenericDao<SfpfItin, Long>{
+    
+    public List<SfpfItin>listaItin();
+    public List<SfpfItin>getIdItinForEsta(int idEsta);
+    
 }

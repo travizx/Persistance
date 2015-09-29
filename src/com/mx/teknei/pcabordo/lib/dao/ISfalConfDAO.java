@@ -5,14 +5,17 @@
  */
 package com.mx.teknei.pcabordo.lib.dao;
 
-
-import com.mx.teknei.pcabordo.lib.entities.SfmoTipu;
+import com.mx.teknei.pcabordo.lib.entities.SfalConf;
 import java.util.List;
 
 /**
  *
- * @author hjcacho
+ * @author ajimenez
  */
-public interface ITipoPuntDAO extends GenericDao<SfmoTipu, Long>{
-    public List<SfmoTipu> listTipoPunto();
+public interface ISfalConfDAO extends GenericDao<SfalConf, Long> {
+
+    public List<SfalConf> listSfalConf();
+
+    public SfalConf getAlarConfForName(String nameConfAlar);
+
 }

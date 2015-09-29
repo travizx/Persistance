@@ -5,15 +5,16 @@
  */
 package com.mx.teknei.pcabordo.lib.service;
 
-import com.mx.teknei.pcabordo.lib.entities.SfmoReceNave;
-import com.mx.teknei.pcabordo.lib.entities.SfmoTipu;
+import com.mx.teknei.pcabordo.lib.entities.SfopEquiAlar;
 import java.util.List;
 
 /**
  *
- * @author hjcacho
+ * @author ajimenez
  */
-public interface ITipoPuntService {
-    public void GuardadPunto(SfmoTipu punto);
-    public List<SfmoTipu> ListarTipoPunto();
+public interface ISfopEquiAlarService{
+   
+    public List<SfopEquiAlar>SfopEquiAlar();
+   public void GuardarIdOpeAlar(SfopEquiAlar opeqAlar);
+    
 }
