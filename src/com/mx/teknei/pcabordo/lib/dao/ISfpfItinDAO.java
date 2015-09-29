@@ -14,7 +14,7 @@ import java.util.List;
  */
 public interface ISfpfItinDAO extends GenericDao<SfpfItin, Long>{
     
-    public List<SfpfItin>listSfpfItin();
+    public List<SfpfItin>listaItin();
     public List<SfpfItin>getIdItinForEsta(int idEsta);
     
 }

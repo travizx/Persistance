@@ -12,7 +12,7 @@ import com.mx.teknei.pcabordo.lib.entities.SfmoReceNave;
  *
  * @author HAENCISO
  */
-public interface IRecpNavDAO extends GenericDao<SfmoReceNave,Long>{
+    public interface IRecpNavDAO extends GenericDao<SfmoReceNave,Long>{
     public List<SfmoReceNave> listRecpNav();
     public SfmoReceNave findByIdVehi(int idVehi);
     public SfmoReceNave findByIdRecpNav(int idRecpNav);
