@@ -19,4 +19,5 @@ public interface IRecpNavService {
     public List<SfmoReceNave> ListarRecpNav();
     SfmoReceNave buscarPorVehiculo(int idVehi);
     SfmoReceNave buscarPorRecpNav(int idRecpNav);
+    SfmoReceNave ultimoRecpNav();
 }

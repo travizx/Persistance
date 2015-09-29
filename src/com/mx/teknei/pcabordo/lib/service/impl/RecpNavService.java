@@ -55,5 +55,10 @@ public class RecpNavService implements IRecpNavService{
     public SfmoReceNave buscarPorRecpNav(int idRecpNav) {
         return recpDAO.findByIdRecpNav(idRecpNav);
     }
+
+    @Override
+    public SfmoReceNave ultimoRecpNav() {
+        return recpDAO.lastRecpNav();
+    }
     
 }

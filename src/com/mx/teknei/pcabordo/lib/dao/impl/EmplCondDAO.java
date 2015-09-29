@@ -29,7 +29,7 @@ public class EmplCondDAO extends GenericDaoImp<SfemCond, Long> implements IEmplC
             trans = session.beginTransaction();
             emplCond = session.createQuery("FROM SfemCond").list();
         } catch (Exception e) {
-            Logg.getInstance().fatal( this.getClass().getSimpleName()+"_listEmplConductor_"+e.getMessage() );
+            //Logg.getInstance().fatal( this.getClass().getSimpleName()+"_listEmplConductor_"+e.getMessage() );
         }finally{
             session.flush();
             session.close();
@@ -48,7 +48,7 @@ public class EmplCondDAO extends GenericDaoImp<SfemCond, Long> implements IEmplC
             queryFindUserAndPass.setParameter("userName", user);
             listUsersFound = queryFindUserAndPass.list();
         } catch (Exception e) {
-            Logg.getInstance().fatal( this.getClass().getSimpleName()+"_findUser_"+e.getMessage() );
+           // Logg.getInstance().fatal( this.getClass().getSimpleName()+"_findUser_"+e.getMessage() );
         }finally{
             session.flush();
             session.close();
@@ -68,9 +68,9 @@ public class EmplCondDAO extends GenericDaoImp<SfemCond, Long> implements IEmplC
             queryFindUserAndPass.setParameter("passw", pass);
             conductor = (SfemCond)queryFindUserAndPass.uniqueResult();
         } catch(NonUniqueResultException nonE){
-            Logg.getInstance().fatal( this.getClass().getSimpleName()+"_findUserAndPass_"+nonE.getMessage() );
+           // Logg.getInstance().fatal( this.getClass().getSimpleName()+"_findUserAndPass_"+nonE.getMessage() );
         }catch (Exception e) {
-            Logg.getInstance().fatal( this.getClass().getSimpleName()+"_findUserAndPass_"+e.getMessage() );
+            //Logg.getInstance().fatal( this.getClass().getSimpleName()+"_findUserAndPass_"+e.getMessage() );
         }finally{
             session.flush();
             session.close();

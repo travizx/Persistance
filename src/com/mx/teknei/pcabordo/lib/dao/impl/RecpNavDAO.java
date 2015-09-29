@@ -77,9 +77,9 @@ public class RecpNavDAO extends GenericDaoImp<SfmoReceNave, Long> implements IRe
             queryFindLastRec.setFirstResult(0);
             rec_nav = (SfmoReceNave)queryFindLastRec.uniqueResult();
         } catch (NonUniqueResultException nonE) {
-            Logg.getInstance().fatal( this.getClass().getSimpleName()+"_lastRecpNav_"+"Error No es el unico REGISTRO que regreso la BD_"+nonE.getMessage() );
+           // Logg.getInstance().fatal( this.getClass().getSimpleName()+"_lastRecpNav_"+"Error No es el unico REGISTRO que regreso la BD_"+nonE.getMessage() );
         } catch (Exception e) {
-            Logg.getInstance().fatal( this.getClass().getSimpleName()+"_lastRecpNav_"+e.getMessage() );
+           // Logg.getInstance().fatal( this.getClass().getSimpleName()+"_lastRecpNav_"+e.getMessage() );
         }finally {
             session.flush();
             session.close();

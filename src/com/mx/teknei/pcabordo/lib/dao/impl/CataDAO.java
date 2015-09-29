@@ -29,9 +29,9 @@ public class CataDAO extends GenericDaoImp<SfpcCata, Long> implements ICataDAO{
             queryFindCata.setParameter("id_cata", id_cata);
             cata = (SfpcCata)queryFindCata.uniqueResult();
         } catch (NonUniqueResultException nonE) {
-            Logg.getInstance().fatal( this.getClass().getSimpleName()+"_findCataByID_"+nonE.getMessage() );
+            //Logg.getInstance().fatal( this.getClass().getSimpleName()+"_findCataByID_"+nonE.getMessage() );
         } catch (Exception e) {
-            Logg.getInstance().fatal( this.getClass().getSimpleName()+"_findCataByID_"+e.getMessage() );
+            //Logg.getInstance().fatal( this.getClass().getSimpleName()+"_findCataByID_"+e.getMessage() );
         }finally {
             session.flush();
             session.close();
@@ -55,7 +55,7 @@ public class CataDAO extends GenericDaoImp<SfpcCata, Long> implements ICataDAO{
             queryFindCodCata.setParameter("cod_cort", cod_cort);
             listCata = queryFindCodCata.list();
         } catch (Exception e) {
-            Logg.getInstance().fatal( this.getClass().getSimpleName()+"_findCataByCodCata_"+e.getMessage() );
+            //Logg.getInstance().fatal( this.getClass().getSimpleName()+"_findCataByCodCata_"+e.getMessage() );
         }finally{
             session.flush();
             session.close();

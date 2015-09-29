@@ -30,9 +30,9 @@ public class HoseFlotDAO extends GenericDaoImp<SfgfHoseFlot, Long> implements IH
             queryFindID.setParameter("id_hora_serv", id_hose_flot);
             hoseFlot = (SfgfHoseFlot)queryFindID.uniqueResult();
         } catch (NonUniqueObjectException nonE) {
-             Logg.getInstance().fatal( this.getClass().getSimpleName()+"_returnCataByID_"+nonE.getMessage() );
+             //Logg.getInstance().fatal( this.getClass().getSimpleName()+"_returnCataByID_"+nonE.getMessage() );
         }catch (Exception e){
-            Logg.getInstance().fatal( this.getClass().getSimpleName()+"_returnCataByID_"+e.getMessage() );
+           // Logg.getInstance().fatal( this.getClass().getSimpleName()+"_returnCataByID_"+e.getMessage() );
         }finally{
             session.flush();
             session.close();
@@ -55,7 +55,7 @@ public class HoseFlotDAO extends GenericDaoImp<SfgfHoseFlot, Long> implements IH
             queryFindByDay.setDate("fecha_Find", date);
             listHoseFlot = queryFindByDay.list();
         } catch (Exception e) {
-            Logg.getInstance().info( this.getClass().getSimpleName()+"_findCataByCodCata_"+e.getMessage() );
+           // Logg.getInstance().info( this.getClass().getSimpleName()+"_findCataByCodCata_"+e.getMessage() );
         }finally{
             session.flush();
             session.close();

@@ -7,6 +7,9 @@
     <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/pc_abordo</property>
     <property name="hibernate.connection.username">postgres</property>
     <property name="hibernate.connection.password">admin</property>
+    <property name="hibernate.current_session_context_class">thread</property>
+    <property name="current_session_context_class">thread</property>
+    <property name="hibernate.show_sql">true</property>
     <mapping resource="com/mx/teknei/pcabordo/lib/entities/SfpfItin.hbm.xml"/>
     <mapping resource="com/mx/teknei/pcabordo/lib/entities/SbctAlar.hbm.xml"/>
     <mapping resource="com/mx/teknei/pcabordo/lib/entities/CctmDire.hbm.xml"/>
