@@ -5,38 +5,33 @@
  */
 package com.mx.teknei.pcabordo.lib.service.impl;
 
-
 import com.mx.teknei.pcabordo.lib.dao.impl.SfopEquiAlarDAO;
 import com.mx.teknei.pcabordo.lib.entities.SfopEquiAlar;
 import com.mx.teknei.pcabordo.lib.service.ISfopEquiAlarService;
 import java.util.List;
 
-
 /**
  *
  * @author ajimenez
  */
-public class SfopEquiAlarService implements ISfopEquiAlarService{
-   
-private SfopEquiAlarDAO SfopEquiAlarDao;
+public class SfopEquiAlarService implements ISfopEquiAlarService {
 
+    private SfopEquiAlarDAO SfopEquiAlarDao;
 
-public SfopEquiAlarService(){
-    
-    SfopEquiAlarDao =new SfopEquiAlarDAO();
-} 
+    public SfopEquiAlarService() {
 
+        SfopEquiAlarDao = new SfopEquiAlarDAO();
+    }
 
-        
     @Override
     public List<SfopEquiAlar> SfopEquiAlar() {
-       return SfopEquiAlarDao.listSfopEquiAlar();
+        return SfopEquiAlarDao.listSfopEquiAlar();
 
-}
-
-   @Override
-    public void GuardarIdOpeAlar(SfopEquiAlar opeqAlar) {
-       SfopEquiAlarDao.add(opeqAlar);
     }
-    
+
+    @Override
+    public void GuardarIdOpeAlar(SfopEquiAlar opeqAlar) {
+        SfopEquiAlarDao.add(opeqAlar);
+    }
+
 }

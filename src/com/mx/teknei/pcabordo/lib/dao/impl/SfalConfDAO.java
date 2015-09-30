@@ -38,21 +38,19 @@ public class SfalConfDAO extends GenericDaoImp<SfalConf, Long> implements ISfalC
         return confAlar;
     }
 
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     @Override
     public SfalConf getAlarConfForName(String nameConfAlar) {
-        SfalConf s_alar  = null;
-//        List<SfalConf> confAlar = null;
+        SfalConf s_alar = null;
+
         Transaction trans = null;
         Session session = getSessionFactory().openSession();
         try {
             trans = session.beginTransaction();
-
-
             SQLQuery query = session.createSQLQuery("SELECT * FROM sitm.sfal_conf s WHERE s.id_alar = (SELECT id_alar from sitm.sbct_alar where des_alar = ? )");
             query.addEntity(SfalConf.class);
             query.setString(0, nameConfAlar);
-            s_alar = (SfalConf)query.uniqueResult();
+            s_alar = (SfalConf) query.uniqueResult();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
