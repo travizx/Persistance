@@ -1,5 +1,5 @@
 package com.mx.teknei.pcabordo.lib.entities;
-// Generated 29/09/2015 01:25:12 PM by Hibernate Tools 4.3.1
+// Generated 30/09/2015 04:22:57 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -26,6 +26,7 @@ public class SflnLin  implements java.io.Serializable {
      private int idTipoLin;
      private Date tiemEst;
      private Set sfruRutas = new HashSet(0);
+     private Set sflnLinEsts = new HashSet(0);
      private Set sfmoTipus = new HashSet(0);
 
     public SflnLin() {
@@ -45,7 +46,7 @@ public class SflnLin  implements java.io.Serializable {
         this.idTipoLin = idTipoLin;
         this.tiemEst = tiemEst;
     }
-    public SflnLin(int idLin, String nom, String descLin, double distEst, int idConSis, String usrCrea, Date fchCrea, String usrModi, Date fchModi, int idEsta, int idTipo, int idTipoLin, Date tiemEst, Set sfruRutas, Set sfmoTipus) {
+    public SflnLin(int idLin, String nom, String descLin, double distEst, int idConSis, String usrCrea, Date fchCrea, String usrModi, Date fchModi, int idEsta, int idTipo, int idTipoLin, Date tiemEst, Set sfruRutas, Set sflnLinEsts, Set sfmoTipus) {
        this.idLin = idLin;
        this.nom = nom;
        this.descLin = descLin;
@@ -60,6 +61,7 @@ public class SflnLin  implements java.io.Serializable {
        this.idTipoLin = idTipoLin;
        this.tiemEst = tiemEst;
        this.sfruRutas = sfruRutas;
+       this.sflnLinEsts = sflnLinEsts;
        this.sfmoTipus = sfmoTipus;
     }
    
@@ -160,6 +162,13 @@ public class SflnLin  implements java.io.Serializable {
     
     public void setSfruRutas(Set sfruRutas) {
         this.sfruRutas = sfruRutas;
+    }
+    public Set getSflnLinEsts() {
+        return this.sflnLinEsts;
+    }
+    
+    public void setSflnLinEsts(Set sflnLinEsts) {
+        this.sflnLinEsts = sflnLinEsts;
     }
     public Set getSfmoTipus() {
         return this.sfmoTipus;

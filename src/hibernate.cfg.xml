@@ -7,9 +7,8 @@
     <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/pc_abordo</property>
     <property name="hibernate.connection.username">postgres</property>
     <property name="hibernate.connection.password">admin</property>
-    <property name="hibernate.current_session_context_class">thread</property>
-    <property name="hibernate.show_sql">true</property>
     <mapping resource="com/mx/teknei/pcabordo/lib/entities/SfpfItin.hbm.xml"/>
+    <mapping resource="com/mx/teknei/pcabordo/lib/entities/SflnLinEst.hbm.xml"/>
     <mapping resource="com/mx/teknei/pcabordo/lib/entities/SbctAlar.hbm.xml"/>
     <mapping resource="com/mx/teknei/pcabordo/lib/entities/CctmDire.hbm.xml"/>
     <mapping resource="com/mx/teknei/pcabordo/lib/entities/CctmCodp.hbm.xml"/>
@@ -30,9 +29,10 @@
     <mapping resource="com/mx/teknei/pcabordo/lib/entities/SfcrVehiCond.hbm.xml"/>
     <mapping resource="com/mx/teknei/pcabordo/lib/entities/SfmoReceNave.hbm.xml"/>
     <mapping resource="com/mx/teknei/pcabordo/lib/entities/CctmColn.hbm.xml"/>
+    <mapping resource="com/mx/teknei/pcabordo/lib/entities/SfcoLineEstaDire.hbm.xml"/>
+    <mapping resource="com/mx/teknei/pcabordo/lib/entities/SfmoHoraSeop.hbm.xml"/>
     <mapping resource="com/mx/teknei/pcabordo/lib/entities/CctmMncp.hbm.xml"/>
     <mapping resource="com/mx/teknei/pcabordo/lib/entities/SfesEst.hbm.xml"/>
     <mapping resource="com/mx/teknei/pcabordo/lib/entities/SfruCrut.hbm.xml"/>
-    <mapping resource="com/mx/teknei/pcabordo/lib/entities/SfmoHoraSeop.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

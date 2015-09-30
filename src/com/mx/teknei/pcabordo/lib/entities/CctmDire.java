@@ -1,5 +1,5 @@
 package com.mx.teknei.pcabordo.lib.entities;
-// Generated 29/09/2015 01:25:12 PM by Hibernate Tools 4.3.1
+// Generated 30/09/2015 04:22:57 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -31,6 +31,7 @@ public class CctmDire  implements java.io.Serializable {
      private String usrModi;
      private Date fchModi;
      private Set sfesEsts = new HashSet(0);
+     private Set sfcoLineEstaDires = new HashSet(0);
 
     public CctmDire() {
     }
@@ -43,7 +44,7 @@ public class CctmDire  implements java.io.Serializable {
         this.usrCrea = usrCrea;
         this.fchCrea = fchCrea;
     }
-    public CctmDire(int idDire, CctmCiud cctmCiud, CctmCodp cctmCodp, CctmColn cctmColn, CctmEstd cctmEstd, CctmMncp cctmMncp, Double latDire, Double lonDire, String callDire, String nintDire, String nextDire, Integer idTipoUbi, int idEsta, int idTipo, String usrCrea, Date fchCrea, String usrModi, Date fchModi, Set sfesEsts) {
+    public CctmDire(int idDire, CctmCiud cctmCiud, CctmCodp cctmCodp, CctmColn cctmColn, CctmEstd cctmEstd, CctmMncp cctmMncp, Double latDire, Double lonDire, String callDire, String nintDire, String nextDire, Integer idTipoUbi, int idEsta, int idTipo, String usrCrea, Date fchCrea, String usrModi, Date fchModi, Set sfesEsts, Set sfcoLineEstaDires) {
        this.idDire = idDire;
        this.cctmCiud = cctmCiud;
        this.cctmCodp = cctmCodp;
@@ -63,6 +64,7 @@ public class CctmDire  implements java.io.Serializable {
        this.usrModi = usrModi;
        this.fchModi = fchModi;
        this.sfesEsts = sfesEsts;
+       this.sfcoLineEstaDires = sfcoLineEstaDires;
     }
    
     public int getIdDire() {
@@ -197,6 +199,13 @@ public class CctmDire  implements java.io.Serializable {
     
     public void setSfesEsts(Set sfesEsts) {
         this.sfesEsts = sfesEsts;
+    }
+    public Set getSfcoLineEstaDires() {
+        return this.sfcoLineEstaDires;
+    }
+    
+    public void setSfcoLineEstaDires(Set sfcoLineEstaDires) {
+        this.sfcoLineEstaDires = sfcoLineEstaDires;
     }
 
 

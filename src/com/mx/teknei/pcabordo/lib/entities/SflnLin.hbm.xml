@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 29/09/2015 01:25:14 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated 30/09/2015 04:22:58 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.mx.teknei.pcabordo.lib.entities.SflnLin" table="sfln_lin" schema="sitm" optimistic-lock="version">
         <comment>Linea del BRT, esta se asocia a una serie de estaciones</comment>
@@ -72,6 +72,14 @@
                 </column>
             </key>
             <one-to-many class="com.mx.teknei.pcabordo.lib.entities.SfruRuta" />
+        </set>
+        <set name="sflnLinEsts" table="sfln_lin_est" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_lin" not-null="true">
+                    <comment>Identificador de la L&#237;nea a la que pertenece la Estaci&#243;n</comment>
+                </column>
+            </key>
+            <one-to-many class="com.mx.teknei.pcabordo.lib.entities.SflnLinEst" />
         </set>
         <set name="sfmoTipus" table="sfmo_tipu" inverse="true" lazy="true" fetch="select">
             <key>

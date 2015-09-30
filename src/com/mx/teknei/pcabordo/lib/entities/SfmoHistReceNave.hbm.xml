@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 29/09/2015 01:25:14 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated 30/09/2015 04:22:58 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.mx.teknei.pcabordo.lib.entities.SfmoHistReceNave" table="sfmo_hist_rece_nave" schema="sitm" optimistic-lock="version">
         <comment>Tabla historial del receptor de Navegaci&#243;n, SICOFT</comment>

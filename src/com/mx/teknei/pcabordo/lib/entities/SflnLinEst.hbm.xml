@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 30/09/2015 04:22:58 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.mx.teknei.pcabordo.lib.entities.SflnLinEst" table="sfln_lin_est" schema="sitm" optimistic-lock="version">
+        <comment>Tabla de relaci&#243;n entre L&#237;neas y Estaciones</comment>
+        <id name="idLinEst" type="int">
+            <column name="id_lin_est" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="sfesEst" class="com.mx.teknei.pcabordo.lib.entities.SfesEst" fetch="select">
+            <column name="id_est" not-null="true">
+                <comment>Identicador de la Estaci&#243;n que pertenece a una L&#237;nea</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="sflnLin" class="com.mx.teknei.pcabordo.lib.entities.SflnLin" fetch="select">
+            <column name="id_lin" not-null="true">
+                <comment>Identificador de la L&#237;nea a la que pertenece la Estaci&#243;n</comment>
+            </column>
+        </many-to-one>
+        <property name="usrCrea" type="string">
+            <column name="usr_crea" length="10" not-null="true">
+                <comment>Nombre del usuario que cre&#243; el registro</comment>
+            </column>
+        </property>
+        <property name="fchCrea" type="timestamp">
+            <column name="fch_crea" length="29" not-null="true">
+                <comment>Fecha de creaci&#243;n del registro</comment>
+            </column>
+        </property>
+        <property name="usrModi" type="string">
+            <column name="usr_modi" length="10">
+                <comment>Nombre del usuario que modific&#243; el registro</comment>
+            </column>
+        </property>
+        <property name="fchModi" type="timestamp">
+            <column name="fch_modi" length="29">
+                <comment>Fecha de modificaci&#243;n del registro</comment>
+            </column>
+        </property>
+        <property name="idEsta" type="int">
+            <column name="id_esta" not-null="true">
+                <comment>Identificador del estado del registro</comment>
+            </column>
+        </property>
+        <property name="idTipo" type="int">
+            <column name="id_tipo" not-null="true">
+                <comment>Identificador del tipo de registro</comment>
+            </column>
+        </property>
+        <property name="idConSis" type="java.lang.Integer">
+            <column name="id_con_sis" />
+        </property>
+        <property name="noEst" type="int">
+            <column name="no_est" not-null="true">
+                <comment>Numero de estacion</comment>
+            </column>
+        </property>
+        <set name="sfcoLineEstaDires" table="sfco_line_esta_dire" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_line_esta" not-null="true">
+                    <comment>FK tabla de lineas estaciones</comment>
+                </column>
+            </key>
+            <one-to-many class="com.mx.teknei.pcabordo.lib.entities.SfcoLineEstaDire" />
+        </set>
+    </class>
+</hibernate-mapping>

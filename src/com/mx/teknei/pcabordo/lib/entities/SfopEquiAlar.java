@@ -1,5 +1,5 @@
 package com.mx.teknei.pcabordo.lib.entities;
-// Generated 29/09/2015 01:25:12 PM by Hibernate Tools 4.3.1
+// Generated 30/09/2015 04:22:57 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -11,8 +11,8 @@ public class SfopEquiAlar  implements java.io.Serializable {
 
 
      private int idOpeqAlar;
-     private Integer sbctAlar;
-     private Integer sfvhVehi;
+     private SbctAlar sbctAlar;
+     private SfvhVehi sfvhVehi;
      private Date fchInic;
      private Date fchFin;
      private Character estaEqui;
@@ -41,7 +41,7 @@ public class SfopEquiAlar  implements java.io.Serializable {
         this.idEsta = idEsta;
         this.idTipo = idTipo;
     }
-    public SfopEquiAlar(int idOpeqAlar, Integer sbctAlar, Integer sfvhVehi, Date fchInic, Date fchFin, Character estaEqui, Double latiAlar, Double lontAlar, Integer idEst, Integer statAlar, Double tramGps, Integer estaAnti, String descOpeqAlar, String usrCrea, Date fchCrea, String usrModi, Date fchModi, int idEsta, int idTipo) {
+    public SfopEquiAlar(int idOpeqAlar, SbctAlar sbctAlar, SfvhVehi sfvhVehi, Date fchInic, Date fchFin, Character estaEqui, Double latiAlar, Double lontAlar, Integer idEst, Integer statAlar, Double tramGps, Integer estaAnti, String descOpeqAlar, String usrCrea, Date fchCrea, String usrModi, Date fchModi, int idEsta, int idTipo) {
        this.idOpeqAlar = idOpeqAlar;
        this.sbctAlar = sbctAlar;
        this.sfvhVehi = sfvhVehi;
@@ -70,18 +70,18 @@ public class SfopEquiAlar  implements java.io.Serializable {
     public void setIdOpeqAlar(int idOpeqAlar) {
         this.idOpeqAlar = idOpeqAlar;
     }
-    public Integer getSbctAlar() {
+    public SbctAlar getSbctAlar() {
         return this.sbctAlar;
     }
     
-    public void setSbctAlar(Integer sbctAlar) {
+    public void setSbctAlar(SbctAlar sbctAlar) {
         this.sbctAlar = sbctAlar;
     }
-    public Integer getSfvhVehi() {
+    public SfvhVehi getSfvhVehi() {
         return this.sfvhVehi;
     }
     
-    public void setSfvhVehi(Integer sfvhVehi) {
+    public void setSfvhVehi(SfvhVehi sfvhVehi) {
         this.sfvhVehi = sfvhVehi;
     }
     public Date getFchInic() {

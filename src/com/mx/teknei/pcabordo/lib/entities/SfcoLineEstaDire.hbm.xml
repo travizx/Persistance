@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 30/09/2015 04:22:58 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.mx.teknei.pcabordo.lib.entities.SfcoLineEstaDire" table="sfco_line_esta_dire" schema="sitm" optimistic-lock="version">
+        <comment>Tabla para almacenar las direcciones de las estaciones</comment>
+        <id name="idLineEstaDire" type="int">
+            <column name="id_line_esta_dire" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="cctmDire" class="com.mx.teknei.pcabordo.lib.entities.CctmDire" fetch="select">
+            <column name="id_dire" not-null="true">
+                <comment>FK tabla de Maestro direcciones</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="sflnLinEst" class="com.mx.teknei.pcabordo.lib.entities.SflnLinEst" fetch="select">
+            <column name="id_line_esta" not-null="true">
+                <comment>FK tabla de lineas estaciones</comment>
+            </column>
+        </many-to-one>
+        <property name="idEsta" type="int">
+            <column name="id_esta" not-null="true">
+                <comment>For&#225;nea Estatus</comment>
+            </column>
+        </property>
+        <property name="idTipo" type="int">
+            <column name="id_tipo" not-null="true">
+                <comment>For&#225;nea Tipo</comment>
+            </column>
+        </property>
+        <property name="usrCrea" type="string">
+            <column name="usr_crea" length="10" not-null="true">
+                <comment>Usuario que creo el registro</comment>
+            </column>
+        </property>
+        <property name="fchCrea" type="timestamp">
+            <column name="fch_crea" length="29" not-null="true">
+                <comment>Fecha de creacion del registro</comment>
+            </column>
+        </property>
+        <property name="usrModi" type="string">
+            <column name="usr_modi" length="10">
+                <comment>Usuario de modificacion del registro</comment>
+            </column>
+        </property>
+        <property name="fchModi" type="timestamp">
+            <column name="fch_modi" length="29">
+                <comment>Fecha de modificacion del registro</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

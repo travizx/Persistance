@@ -21,6 +21,7 @@ public class LoadConnection {
     private static final Integer NUMERO_PERMITIDO_CONECCIONES = 50;
 
     static {
+        
         countSessions = 0;
         try {
             // Create the SessionFactory from standard (hibernate.cfg.xml) 
@@ -39,6 +40,7 @@ public class LoadConnection {
     public static SessionFactory getSessionFactory() {
         countSessions++;
         if (countSessions > NUMERO_PERMITIDO_CONECCIONES) {
+            sessionFactory.close();
             sessionFactory = null;
             try {
             // Create the SessionFactory from standard (hibernate.cfg.xml) 
