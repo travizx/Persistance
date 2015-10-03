@@ -1,5 +1,5 @@
 package com.mx.teknei.pcabordo.lib.entities;
-// Generated 30/09/2015 04:22:57 PM by Hibernate Tools 4.3.1
+// Generated 2/10/2015 11:02:27 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -34,6 +34,7 @@ public class SfpfItin  implements java.io.Serializable {
      private Integer idTipoLin;
      private Integer idCond;
      private Integer numVehi;
+     private Double kmReco;
      private Set sfdtDitis = new HashSet(0);
 
     public SfpfItin() {
@@ -46,7 +47,7 @@ public class SfpfItin  implements java.io.Serializable {
         this.fchCrea = fchCrea;
         this.idEsta = idEsta;
     }
-    public SfpfItin(int idItin, SfcrVehiCond sfcrVehiCond, SfesEst sfesEstByIdEstaOrig, SfesEst sfesEstByIdEstaDest, SfruRuta sfruRuta, SfvhVehi sfvhVehi, Date horaSaliItin, Date horaLlegItin, Date horaSaliRealItin, Date horaLlegRealItin, String direItin, Integer idReceNave, String usrCrea, Date fchCrea, String usrModi, Date fchModi, int idEsta, Integer idTipo, Integer idConSis, Integer idTipoLin, Integer idCond, Integer numVehi, Set sfdtDitis) {
+    public SfpfItin(int idItin, SfcrVehiCond sfcrVehiCond, SfesEst sfesEstByIdEstaOrig, SfesEst sfesEstByIdEstaDest, SfruRuta sfruRuta, SfvhVehi sfvhVehi, Date horaSaliItin, Date horaLlegItin, Date horaSaliRealItin, Date horaLlegRealItin, String direItin, Integer idReceNave, String usrCrea, Date fchCrea, String usrModi, Date fchModi, int idEsta, Integer idTipo, Integer idConSis, Integer idTipoLin, Integer idCond, Integer numVehi, Double kmReco, Set sfdtDitis) {
        this.idItin = idItin;
        this.sfcrVehiCond = sfcrVehiCond;
        this.sfesEstByIdEstaOrig = sfesEstByIdEstaOrig;
@@ -69,6 +70,7 @@ public class SfpfItin  implements java.io.Serializable {
        this.idTipoLin = idTipoLin;
        this.idCond = idCond;
        this.numVehi = numVehi;
+       this.kmReco = kmReco;
        this.sfdtDitis = sfdtDitis;
     }
    
@@ -225,6 +227,13 @@ public class SfpfItin  implements java.io.Serializable {
     
     public void setNumVehi(Integer numVehi) {
         this.numVehi = numVehi;
+    }
+    public Double getKmReco() {
+        return this.kmReco;
+    }
+    
+    public void setKmReco(Double kmReco) {
+        this.kmReco = kmReco;
     }
     public Set getSfdtDitis() {
         return this.sfdtDitis;

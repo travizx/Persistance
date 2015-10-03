@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 30/09/2015 04:22:58 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated 2/10/2015 11:02:29 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.mx.teknei.pcabordo.lib.entities.SfpfItin" table="sfpf_itin" schema="sitm" optimistic-lock="version">
         <comment>tabla para itinerario, programaci&#243;n de Flotas</comment>
@@ -110,6 +110,11 @@
         <property name="numVehi" type="java.lang.Integer">
             <column name="num_vehi">
                 <comment>numero de vehiculos que seran asignados</comment>
+            </column>
+        </property>
+        <property name="kmReco" type="java.lang.Double">
+            <column name="km_reco" precision="17" scale="17">
+                <comment>En este campo se guardan los kilometros recorridos por el autob&#250;s</comment>
             </column>
         </property>
         <set name="sfdtDitis" table="sfdt_diti" inverse="true" lazy="true" fetch="select">
