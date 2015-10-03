@@ -6,6 +6,7 @@
 package com.mx.teknei.pcabordo.lib.service;
 
 import com.mx.teknei.pcabordo.lib.entities.SbctAlar;
+import java.util.List;
 
 
 /**
@@ -15,5 +16,6 @@ import com.mx.teknei.pcabordo.lib.entities.SbctAlar;
 public interface ISbctAlarService {
     
     public SbctAlar getAlarForName(String nameAlar);
+    public List<SbctAlar> ListarAlarmas();
     
 }

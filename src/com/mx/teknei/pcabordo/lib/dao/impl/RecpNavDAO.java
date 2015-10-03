@@ -26,7 +26,7 @@ public class RecpNavDAO extends GenericDaoImp<SfmoReceNave, Long> implements IRe
 
     @Override
     public List<SfmoReceNave> listRecpNav() {
-        List<SfmoReceNave> recpnav = new ArrayList<>();
+        List<SfmoReceNave> recpnav = null;
         Transaction trans = null;
         Session session = getSessionFactory().openSession();
         try {

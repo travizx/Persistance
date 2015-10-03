@@ -8,7 +8,7 @@ package com.mx.teknei.pcabordo.lib.dao.impl;
 import static com.mx.teknei.pcabordo.lib.connection.LoadConnection.getSessionFactory;
 import com.mx.teknei.pcabordo.lib.dao.ISbctAlarDAO;
 import com.mx.teknei.pcabordo.lib.entities.SbctAlar;
-import com.mx.teknei.pcabordo.lib.entities.SfalConf;
+import java.util.List;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -39,6 +39,24 @@ public class SbctAlarDAO extends GenericDaoImp<SbctAlar, Long> implements ISbctA
         return s_alar;
         
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<SbctAlar> listAlar() {
+        List<SbctAlar> alarmsList = null;
+        Transaction trans = null;
+        Session session = getSessionFactory().openSession();
+        try {
+            trans = session.beginTransaction();
+            alarmsList = session.createQuery("from SbctAlar").list();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally{
+            session.flush();
+            session.close();
+        }
+        
+        return alarmsList;
     }
 
 }

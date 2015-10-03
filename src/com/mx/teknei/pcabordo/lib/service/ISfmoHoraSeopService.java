@@ -14,6 +14,6 @@ import java.util.List;
  */
 public interface ISfmoHoraSeopService {
     
-     public List<SfmoHoraSeop>SfmoHoraSeop();
+     public List<SfmoHoraSeop> ListarHoraSeOp();
    
 }

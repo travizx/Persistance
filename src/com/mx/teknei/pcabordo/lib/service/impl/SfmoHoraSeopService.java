@@ -17,15 +17,15 @@ import java.util.List;
  */
 public class SfmoHoraSeopService implements ISfmoHoraSeopService {
 
-    private ISfmoHoraSeopDAO SfmoHoraSeopDao;
+    private ISfmoHoraSeopDAO horaSeOpDAO;
 
     public SfmoHoraSeopService() {
-        SfmoHoraSeopDao = new SfmoHoraSeopDAO();
+        horaSeOpDAO = new SfmoHoraSeopDAO();
     }
 
     @Override
-    public List<SfmoHoraSeop> SfmoHoraSeop() {
-        return SfmoHoraSeopDao.SfmoHoraSeop();
+    public List<SfmoHoraSeop> ListarHoraSeOp() {
+        return horaSeOpDAO.listHoraSeop();
     }
 
 }

@@ -9,6 +9,7 @@ package com.mx.teknei.pcabordo.lib.service.impl;
 import com.mx.teknei.pcabordo.lib.dao.impl.SbctAlarDAO;
 import com.mx.teknei.pcabordo.lib.entities.SbctAlar;
 import com.mx.teknei.pcabordo.lib.service.ISbctAlarService;
+import java.util.List;
 
 /**
  *
@@ -16,19 +17,24 @@ import com.mx.teknei.pcabordo.lib.service.ISbctAlarService;
  */
 public class SbctAlarService implements ISbctAlarService{
     
-    private SbctAlarDAO SbctAlarDao;
+    private SbctAlarDAO alarDao;
     
     public SbctAlarService(){
         
-        SbctAlarDao =new SbctAlarDAO();
+        alarDao = new SbctAlarDAO();
     
 }
 
     @Override
     public SbctAlar getAlarForName(String nameAlar) {
         
-        return SbctAlarDao.getAlarForName(nameAlar);
+        return alarDao.getAlarForName(nameAlar);
         
+    }
+
+    @Override
+    public List<SbctAlar> ListarAlarmas() {
+        return alarDao.listAlar();
     }
 
    

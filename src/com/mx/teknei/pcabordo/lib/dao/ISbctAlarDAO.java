@@ -6,6 +6,7 @@
 package com.mx.teknei.pcabordo.lib.dao;
 
 import com.mx.teknei.pcabordo.lib.entities.SbctAlar;
+import java.util.List;
 
 
 /**
@@ -13,10 +14,7 @@ import com.mx.teknei.pcabordo.lib.entities.SbctAlar;
  * @author ajimenez
  */
 public interface ISbctAlarDAO extends GenericDao<SbctAlar, Long>{
-    
-
    public SbctAlar getAlarForName(String nameAlar);
- 
-    
+   public List<SbctAlar> listAlar();
 }
 

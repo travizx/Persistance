@@ -15,10 +15,7 @@ import java.util.List;
  */
 public interface ISfmoHoraSeopDAO extends GenericDao<SfmoHoraSeop, Long> {
 
-    public List<SfmoHoraSeop>SfmoHoraSeop();
+    public List<SfmoHoraSeop> listHoraSeop();
     public SfmoHoraSeop getSfmoHoraSeopForName(String nameHora);
     
-
-  
-
 }

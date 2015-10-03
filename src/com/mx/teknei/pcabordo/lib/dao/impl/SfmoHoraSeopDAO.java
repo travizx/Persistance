@@ -8,7 +8,6 @@ package com.mx.teknei.pcabordo.lib.dao.impl;
 import static com.mx.teknei.pcabordo.lib.connection.LoadConnection.getSessionFactory;
 import com.mx.teknei.pcabordo.lib.dao.ISfmoHoraSeopDAO;
 import com.mx.teknei.pcabordo.lib.entities.SfmoHoraSeop;
-import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -21,20 +20,20 @@ import org.hibernate.Transaction;
 public class SfmoHoraSeopDAO extends GenericDaoImp<SfmoHoraSeop, Long> implements ISfmoHoraSeopDAO  {
 
     @Override
-    public List<SfmoHoraSeop> SfmoHoraSeop() {
-        List<SfmoHoraSeop> horaOpe = new ArrayList<>();
+    public List<SfmoHoraSeop> listHoraSeop() {
+        List<SfmoHoraSeop> horaOpeList = null;
         Transaction trans = null;
         Session session = getSessionFactory().openSession();
         try {
             trans = session.beginTransaction();
-            horaOpe = session.createQuery("from SfmoHoraSeop").list();
+            horaOpeList = session.createQuery("FROM SfmoHoraSeop").list();
         } catch (Exception e) {
             e.printStackTrace();
         }finally{
             session.flush();
             session.close();
         }
-        return horaOpe;
+        return horaOpeList;
         
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
