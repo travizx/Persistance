@@ -5,6 +5,7 @@
  */
 package com.mx.teknei.pcabordo.lib.service;
 import com.mx.teknei.pcabordo.lib.entities.SfpfItin;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -14,8 +15,12 @@ import java.util.List;
 public interface ISfpfItinService {
     
    
-    public void ActualizarItinera(SfpfItin itin);
-    public List<SfpfItin> ListaItin();
-    public List<SfpfItin> ObtenerPorIdEsta(int idEsta);
+    
+    public List<SfpfItin> ObtenerItinEntreRangoFecha(Long dateMore, Long dateLess,int id_Ruta ,int id_Estado);
+    public void  ActivarItinera(SfpfItin itinerario);
+    public void  CerrarItinerario(SfpfItin itinerario);
+    public SfpfItin BuscarItinPorID(int id);
+    public List<SfpfItin> BuscarVehiPorID(Integer idVehi);
+    public void updateKmRecorridos(int idVehi, Date hora1, Date hora2, double kmReco);
     
 }

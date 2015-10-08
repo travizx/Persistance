@@ -1,5 +1,5 @@
 package com.mx.teknei.pcabordo.lib.entities;
-// Generated 2/10/2015 11:02:27 PM by Hibernate Tools 4.3.1
+// Generated 8/10/2015 10:59:21 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;

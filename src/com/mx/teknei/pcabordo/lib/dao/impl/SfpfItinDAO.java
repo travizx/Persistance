@@ -7,71 +7,165 @@ package com.mx.teknei.pcabordo.lib.dao.impl;
 
 import static com.mx.teknei.pcabordo.lib.connection.LoadConnection.getSessionFactory;
 import com.mx.teknei.pcabordo.lib.dao.ISfpfItinDAO;
+import com.mx.teknei.pcabordo.lib.entities.SbctAlar;
+import com.mx.teknei.pcabordo.lib.entities.SfmoReceNave;
 import com.mx.teknei.pcabordo.lib.entities.SfpfItin;
+import com.mx.teknei.pcabordo.lib.entities.SfruRuta;
 import com.mx.teknei.pcabordo.lib.entities.SfvhVehi;
-import java.util.ArrayList;
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
+import org.hibernate.Criteria;
 import org.hibernate.Query;
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-
+import org.hibernate.criterion.Restrictions;
 
 /**
  *
  * @author ajimenez
  */
-public class SfpfItinDAO extends GenericDaoImp<SfpfItin, Long> implements ISfpfItinDAO{
-
-   
+public class SfpfItinDAO extends GenericDaoImp<SfpfItin, Long> implements ISfpfItinDAO {
 
     @Override
     public List<SfpfItin> getIdItinForEsta(int idEsta) {
-        
-        List<SfpfItin>itin =new ArrayList<>();
-        Transaction tran=null;
-        Session session=getSessionFactory().openSession();
-        try{
-        
-        tran=session.beginTransaction();
-        Query query = session.createQuery("from SfpfItin E WHERE E.idEsta = :idEsta");
-        query.setParameter("idEsta", idEsta);
-        itin= query.list();
-        return null;
-        }catch (Exception e){
-            
+
+        List<SfpfItin> itin = null;
+        Transaction tran = null;
+        Session session = getSessionFactory().openSession();
+        try {
+
+            tran = session.beginTransaction();
+            Query query = session.createQuery("from SfpfItin E WHERE E.idEsta = :idEsta");
+            query.setParameter("idEsta", idEsta);
+            itin = query.list();
+            return null;
+        } catch (Exception e) {
+
             e.printStackTrace();
-            
-        }finally{
-           session.close();
-           session.flush();
-            
+
+        } finally {
+            session.close();
+            session.flush();
+
         }
         return itin;
-      
-        
-        }
-        
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+    }
 
     @Override
     public List<SfpfItin> listaItin() {
-         List<SfpfItin> itin = new ArrayList<>();
+        List<SfpfItin> itin = null;
         Transaction trans = null;
         Session session = getSessionFactory().openSession();
         try {
             trans = session.beginTransaction();
             itin = session.createQuery("from SfpfItin").list();
         } catch (Exception e) {
-            e.printStackTrace();
-        }finally{
+            System.out.println("-ERROR DAO:"+e.getMessage()+"--"+this.getClass().getSimpleName());
+        } finally {
             session.flush();
             session.close();
         }
         return itin;
-        
-        
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
     }
+
+    @Override
+    public List<SfpfItin> compareTwoDatesInHora_Sali(Long dateMore, Long dateLess,int id_Ruta ,int id_Estado) {
+        List<SfpfItin> itin = null;
+        Transaction trans = null;
+        Session session = getSessionFactory().openSession();
+        try {
+                trans = session.beginTransaction();
+                Query query = session.createQuery("FROM SfpfItin AS c WHERE c.horaSaliItin BETWEEN :stDate AND :edDate AND sfruRuta = :ruta AND idEsta = :id_esta");//AND sfruRuta = :ruta AND idEsta = :id_esta"
+                query.setTimestamp("stDate", new Timestamp(dateMore));
+                query.setTimestamp("edDate", new Timestamp(dateLess));
+                SfruRuta rutaEnty = new SfruRuta();
+                rutaEnty.setIdRuta(id_Ruta);
+                query.setParameter("ruta", rutaEnty);
+                query.setParameter("id_esta", id_Estado);
+                itin = query.list();
+
+        } catch (Exception e) {
+            System.out.println("-ERROR DAO:"+e.getMessage()+"--"+this.getClass().getSimpleName());
+        } finally {
+            session.close();
+        }
+        return itin;
     }
+
+    @Override
+    public SfpfItin findByID(int id) {
+        SfpfItin intiEnty = null;
+        Transaction trans = null;
+        Session session = getSessionFactory().openSession();
+        try {
+            trans = session.beginTransaction();
+            Query query = session.createQuery("FROM SfpfItin s WHERE s.idItin= :idITIN");
+            query.setParameter("idITIN", id);
+            intiEnty = (SfpfItin)query.uniqueResult();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally{
+            session.close();
+        }
+        
+        return intiEnty;
+    }
+
+    @Override
+    public void updateKmRecorridos(int idVehi, Date hora1, Date hora2, double kmReco) {
+        Session session = getSessionFactory().openSession();
+        try {
+            Transaction tran = session.beginTransaction(); 
+            SfvhVehi vehi = new SfvhVehi();
+            vehi.setIdVehi(idVehi);
+            Query query = session.createQuery("update SfpfItin set kmReco = :kmReco"
+                    + " where sfvhVehi = :sfvhVehi AND horaSaliRealItin =  :horaSaliRealItin AND horaLlegRealItin= :horaLlegRealItin AND idEsta ='3'");
+
+            System.out.println("Valor de km" + " " + kmReco);
+            query.setParameter("kmReco", kmReco);
+            query.setParameter("sfvhVehi", vehi);
+            System.out.println("Valor de vehi" + " " + vehi.getIdVehi());
+            query.setParameter("horaSaliRealItin", hora1);
+            query.setParameter("horaLlegRealItin", hora2);
+            int result = query.executeUpdate();
+            tran.commit();
+            System.out.println("Valor de result" + " " + result);
+            
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+    }
+
+    @Override
+    public List<SfpfItin> findIdVehiculo(int idVehi) {
+        List<SfpfItin> itin = null;
+        Transaction tran = null;
+        Session session = getSessionFactory().openSession();
+        try {
+
+            tran = session.beginTransaction();
+            Query query = session.createSQLQuery("select * from sitm.sfpf_itin e WHERE e.id_vehi = ?")
+                    .addEntity(SfpfItin.class)
+                    .setParameter(0, idVehi);
+
+            itin = query.list();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return itin;
+    }
+
+    
+    
     
 
+}

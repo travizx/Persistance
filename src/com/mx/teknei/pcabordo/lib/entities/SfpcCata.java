@@ -1,5 +1,5 @@
 package com.mx.teknei.pcabordo.lib.entities;
-// Generated 2/10/2015 11:02:27 PM by Hibernate Tools 4.3.1
+// Generated 8/10/2015 10:59:21 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -21,6 +21,7 @@ public class SfpcCata  implements java.io.Serializable {
      private String usrModi;
      private Date fchModi;
      private Set sfmoHoraSeops = new HashSet(0);
+     private Set sfemConds = new HashSet(0);
 
     public SfpcCata() {
     }
@@ -34,7 +35,7 @@ public class SfpcCata  implements java.io.Serializable {
         this.usrCrea = usrCrea;
         this.fchCrea = fchCrea;
     }
-    public SfpcCata(int idCata, String codCata, String codCort, String desCort, String usrCrea, Date fchCrea, String usrModi, Date fchModi, Set sfmoHoraSeops) {
+    public SfpcCata(int idCata, String codCata, String codCort, String desCort, String usrCrea, Date fchCrea, String usrModi, Date fchModi, Set sfmoHoraSeops, Set sfemConds) {
        this.idCata = idCata;
        this.codCata = codCata;
        this.codCort = codCort;
@@ -44,6 +45,7 @@ public class SfpcCata  implements java.io.Serializable {
        this.usrModi = usrModi;
        this.fchModi = fchModi;
        this.sfmoHoraSeops = sfmoHoraSeops;
+       this.sfemConds = sfemConds;
     }
    
     public int getIdCata() {
@@ -108,6 +110,13 @@ public class SfpcCata  implements java.io.Serializable {
     
     public void setSfmoHoraSeops(Set sfmoHoraSeops) {
         this.sfmoHoraSeops = sfmoHoraSeops;
+    }
+    public Set getSfemConds() {
+        return this.sfemConds;
+    }
+    
+    public void setSfemConds(Set sfemConds) {
+        this.sfemConds = sfemConds;
     }
 
 

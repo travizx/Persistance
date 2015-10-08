@@ -1,5 +1,5 @@
 package com.mx.teknei.pcabordo.lib.entities;
-// Generated 2/10/2015 11:02:27 PM by Hibernate Tools 4.3.1
+// Generated 8/10/2015 10:59:21 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -13,7 +13,6 @@ public class SfvhVehi  implements java.io.Serializable {
 
 
      private int idVehi;
-     private Integer idEmpCond;
      private String placVehi;
      private int idTipoVehi;
      private int kmVehi;
@@ -53,9 +52,8 @@ public class SfvhVehi  implements java.io.Serializable {
         this.idTipo = idTipo;
         this.idModeVehi = idModeVehi;
     }
-    public SfvhVehi(int idVehi, Integer idEmpCond, String placVehi, int idTipoVehi, int kmVehi, int idEdoVehi, String usrCrea, Date fchCrea, String usrModi, Date fchModi, int idEsta, int idTipo, int idModeVehi, Integer anioMode, Integer capPas, String noEcon, Date fchAlta, Date fchOper, Integer idConSis, Set sfpfItins, Set sfmoReceNaves, Set sfmoHistReceNaves, Set sfcrVehiConds, Set sfopEquiAlars) {
+    public SfvhVehi(int idVehi, String placVehi, int idTipoVehi, int kmVehi, int idEdoVehi, String usrCrea, Date fchCrea, String usrModi, Date fchModi, int idEsta, int idTipo, int idModeVehi, Integer anioMode, Integer capPas, String noEcon, Date fchAlta, Date fchOper, Integer idConSis, Set sfpfItins, Set sfmoReceNaves, Set sfmoHistReceNaves, Set sfcrVehiConds, Set sfopEquiAlars) {
        this.idVehi = idVehi;
-       this.idEmpCond = idEmpCond;
        this.placVehi = placVehi;
        this.idTipoVehi = idTipoVehi;
        this.kmVehi = kmVehi;
@@ -86,13 +84,6 @@ public class SfvhVehi  implements java.io.Serializable {
     
     public void setIdVehi(int idVehi) {
         this.idVehi = idVehi;
-    }
-    public Integer getIdEmpCond() {
-        return this.idEmpCond;
-    }
-    
-    public void setIdEmpCond(Integer idEmpCond) {
-        this.idEmpCond = idEmpCond;
     }
     public String getPlacVehi() {
         return this.placVehi;

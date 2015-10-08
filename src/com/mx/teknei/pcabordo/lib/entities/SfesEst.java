@@ -1,5 +1,5 @@
 package com.mx.teknei.pcabordo.lib.entities;
-// Generated 2/10/2015 11:02:27 PM by Hibernate Tools 4.3.1
+// Generated 8/10/2015 10:59:21 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -33,6 +33,8 @@ public class SfesEst  implements java.io.Serializable {
      private Set sfruCrutsForIdEstOrig = new HashSet(0);
      private Set sflnLinEsts = new HashSet(0);
      private Set sfpfItinsForIdEstaDest = new HashSet(0);
+     private Set sfpfItinsForIdEstaDest_1 = new HashSet(0);
+     private Set sfpfItinsForIdEstaOrig_1 = new HashSet(0);
      private Set sfdtDitisForIdEsto = new HashSet(0);
      private Set sfdtDitisForIdEstd = new HashSet(0);
      private Set sfruCrutsForIdEstDest = new HashSet(0);
@@ -55,7 +57,7 @@ public class SfesEst  implements java.io.Serializable {
         this.idEsta = idEsta;
         this.idTipo = idTipo;
     }
-    public SfesEst(int idEst, CctmDire cctmDire, String nomEst, String descEst, int noDisp, int cantVehi, int tran, int tipoEst, String imgEst, String usrCrea, Date fchCrea, String usrModi, Date fchModi, int idEsta, int idTipo, Integer idConSis, Integer idPcAbor, Set sfpfItinsForIdEstaOrig, Set sfruCrutsForIdEstOrig, Set sflnLinEsts, Set sfpfItinsForIdEstaDest, Set sfdtDitisForIdEsto, Set sfdtDitisForIdEstd, Set sfruCrutsForIdEstDest) {
+    public SfesEst(int idEst, CctmDire cctmDire, String nomEst, String descEst, int noDisp, int cantVehi, int tran, int tipoEst, String imgEst, String usrCrea, Date fchCrea, String usrModi, Date fchModi, int idEsta, int idTipo, Integer idConSis, Integer idPcAbor, Set sfpfItinsForIdEstaOrig, Set sfruCrutsForIdEstOrig, Set sflnLinEsts, Set sfpfItinsForIdEstaDest, Set sfpfItinsForIdEstaDest_1, Set sfpfItinsForIdEstaOrig_1, Set sfdtDitisForIdEsto, Set sfdtDitisForIdEstd, Set sfruCrutsForIdEstDest) {
        this.idEst = idEst;
        this.cctmDire = cctmDire;
        this.nomEst = nomEst;
@@ -77,6 +79,8 @@ public class SfesEst  implements java.io.Serializable {
        this.sfruCrutsForIdEstOrig = sfruCrutsForIdEstOrig;
        this.sflnLinEsts = sflnLinEsts;
        this.sfpfItinsForIdEstaDest = sfpfItinsForIdEstaDest;
+       this.sfpfItinsForIdEstaDest_1 = sfpfItinsForIdEstaDest_1;
+       this.sfpfItinsForIdEstaOrig_1 = sfpfItinsForIdEstaOrig_1;
        this.sfdtDitisForIdEsto = sfdtDitisForIdEsto;
        this.sfdtDitisForIdEstd = sfdtDitisForIdEstd;
        this.sfruCrutsForIdEstDest = sfruCrutsForIdEstDest;
@@ -228,6 +232,20 @@ public class SfesEst  implements java.io.Serializable {
     
     public void setSfpfItinsForIdEstaDest(Set sfpfItinsForIdEstaDest) {
         this.sfpfItinsForIdEstaDest = sfpfItinsForIdEstaDest;
+    }
+    public Set getSfpfItinsForIdEstaDest_1() {
+        return this.sfpfItinsForIdEstaDest_1;
+    }
+    
+    public void setSfpfItinsForIdEstaDest_1(Set sfpfItinsForIdEstaDest_1) {
+        this.sfpfItinsForIdEstaDest_1 = sfpfItinsForIdEstaDest_1;
+    }
+    public Set getSfpfItinsForIdEstaOrig_1() {
+        return this.sfpfItinsForIdEstaOrig_1;
+    }
+    
+    public void setSfpfItinsForIdEstaOrig_1(Set sfpfItinsForIdEstaOrig_1) {
+        this.sfpfItinsForIdEstaOrig_1 = sfpfItinsForIdEstaOrig_1;
     }
     public Set getSfdtDitisForIdEsto() {
         return this.sfdtDitisForIdEsto;

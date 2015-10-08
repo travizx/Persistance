@@ -1,5 +1,5 @@
 package com.mx.teknei.pcabordo.lib.entities;
-// Generated 2/10/2015 11:02:27 PM by Hibernate Tools 4.3.1
+// Generated 8/10/2015 10:59:21 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -23,7 +23,6 @@ public class SfpfItin  implements java.io.Serializable {
      private Date horaSaliRealItin;
      private Date horaLlegRealItin;
      private String direItin;
-     private Integer idReceNave;
      private String usrCrea;
      private Date fchCrea;
      private String usrModi;
@@ -33,8 +32,8 @@ public class SfpfItin  implements java.io.Serializable {
      private Integer idConSis;
      private Integer idTipoLin;
      private Integer idCond;
-     private Integer numVehi;
      private Double kmReco;
+     private Integer numCorri;
      private Set sfdtDitis = new HashSet(0);
 
     public SfpfItin() {
@@ -47,7 +46,7 @@ public class SfpfItin  implements java.io.Serializable {
         this.fchCrea = fchCrea;
         this.idEsta = idEsta;
     }
-    public SfpfItin(int idItin, SfcrVehiCond sfcrVehiCond, SfesEst sfesEstByIdEstaOrig, SfesEst sfesEstByIdEstaDest, SfruRuta sfruRuta, SfvhVehi sfvhVehi, Date horaSaliItin, Date horaLlegItin, Date horaSaliRealItin, Date horaLlegRealItin, String direItin, Integer idReceNave, String usrCrea, Date fchCrea, String usrModi, Date fchModi, int idEsta, Integer idTipo, Integer idConSis, Integer idTipoLin, Integer idCond, Integer numVehi, Double kmReco, Set sfdtDitis) {
+    public SfpfItin(int idItin, SfcrVehiCond sfcrVehiCond, SfesEst sfesEstByIdEstaOrig, SfesEst sfesEstByIdEstaDest, SfruRuta sfruRuta, SfvhVehi sfvhVehi, Date horaSaliItin, Date horaLlegItin, Date horaSaliRealItin, Date horaLlegRealItin, String direItin, String usrCrea, Date fchCrea, String usrModi, Date fchModi, int idEsta, Integer idTipo, Integer idConSis, Integer idTipoLin, Integer idCond, Double kmReco, Integer numCorri, Set sfdtDitis) {
        this.idItin = idItin;
        this.sfcrVehiCond = sfcrVehiCond;
        this.sfesEstByIdEstaOrig = sfesEstByIdEstaOrig;
@@ -59,7 +58,6 @@ public class SfpfItin  implements java.io.Serializable {
        this.horaSaliRealItin = horaSaliRealItin;
        this.horaLlegRealItin = horaLlegRealItin;
        this.direItin = direItin;
-       this.idReceNave = idReceNave;
        this.usrCrea = usrCrea;
        this.fchCrea = fchCrea;
        this.usrModi = usrModi;
@@ -69,8 +67,8 @@ public class SfpfItin  implements java.io.Serializable {
        this.idConSis = idConSis;
        this.idTipoLin = idTipoLin;
        this.idCond = idCond;
-       this.numVehi = numVehi;
        this.kmReco = kmReco;
+       this.numCorri = numCorri;
        this.sfdtDitis = sfdtDitis;
     }
    
@@ -151,13 +149,6 @@ public class SfpfItin  implements java.io.Serializable {
     public void setDireItin(String direItin) {
         this.direItin = direItin;
     }
-    public Integer getIdReceNave() {
-        return this.idReceNave;
-    }
-    
-    public void setIdReceNave(Integer idReceNave) {
-        this.idReceNave = idReceNave;
-    }
     public String getUsrCrea() {
         return this.usrCrea;
     }
@@ -221,19 +212,19 @@ public class SfpfItin  implements java.io.Serializable {
     public void setIdCond(Integer idCond) {
         this.idCond = idCond;
     }
-    public Integer getNumVehi() {
-        return this.numVehi;
-    }
-    
-    public void setNumVehi(Integer numVehi) {
-        this.numVehi = numVehi;
-    }
     public Double getKmReco() {
         return this.kmReco;
     }
     
     public void setKmReco(Double kmReco) {
         this.kmReco = kmReco;
+    }
+    public Integer getNumCorri() {
+        return this.numCorri;
+    }
+    
+    public void setNumCorri(Integer numCorri) {
+        this.numCorri = numCorri;
     }
     public Set getSfdtDitis() {
         return this.sfdtDitis;

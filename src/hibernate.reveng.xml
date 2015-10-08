@@ -1,32 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
 <hibernate-reverse-engineering>
-  <schema-selection match-catalog="pc_abordo" match-schema="sitm"/>
-  <table-filter match-name="sfmo_rece_nave"/>
-  <table-filter match-name="sfru_ruta"/>
-  <table-filter match-name="sfco_line_esta_dire"/>
-  <table-filter match-name="sfln_lin_est"/>
-  <table-filter match-name="sfop_equi_alar"/>
-  <table-filter match-name="sfes_est"/>
-  <table-filter match-name="sfgf_hose_flot"/>
-  <table-filter match-name="cctm_arpo"/>
-  <table-filter match-name="cctm_coln"/>
-  <table-filter match-name="sfmo_hora_seop"/>
-  <table-filter match-name="sfem_cond"/>
-  <table-filter match-name="sfmo_hist_rece_nave"/>
-  <table-filter match-name="sfvh_vehi"/>
-  <table-filter match-name="sfal_conf"/>
-  <table-filter match-name="cctm_dire"/>
+  <schema-selection match-catalog="SITM_SICOFT" match-schema="sitm"/>
   <table-filter match-name="sfmo_tipu"/>
+  <table-filter match-name="sfmo_rece_nave"/>
+  <table-filter match-name="sfln_lin_est"/>
   <table-filter match-name="sfcr_vehi_cond"/>
-  <table-filter match-name="cctm_mncp"/>
-  <table-filter match-name="sfdt_diti"/>
-  <table-filter match-name="sfln_lin"/>
-  <table-filter match-name="cctm_estd"/>
-  <table-filter match-name="sbct_alar"/>
-  <table-filter match-name="cctm_codp"/>
   <table-filter match-name="sfru_crut"/>
-  <table-filter match-name="sfpc_cata"/>
+  <table-filter match-name="sfln_lin"/>
+  <table-filter match-name="sfmo_hora_seop"/>
+  <table-filter match-name="sfmo_hist_rece_nave"/>
+  <table-filter match-name="cctm_estd"/>
+  <table-filter match-name="sfru_ruta"/>
+  <table-filter match-name="sbct_alar"/>
+  <table-filter match-name="cctm_arpo"/>
+  <table-filter match-name="sfdt_diti"/>
+  <table-filter match-name="sfop_equi_alar"/>
+  <table-filter match-name="cctm_mncp"/>
+  <table-filter match-name="sfes_est"/>
+  <table-filter match-name="cctm_dire"/>
   <table-filter match-name="sfpf_itin"/>
+  <table-filter match-name="sfco_line_esta_dire"/>
+  <table-filter match-name="sfvh_vehi"/>
+  <table-filter match-name="cctm_codp"/>
+  <table-filter match-name="cctm_coln"/>
+  <table-filter match-name="sfal_conf"/>
   <table-filter match-name="cctm_ciud"/>
+  <table-filter match-name="sfpc_cata"/>
+  <table-filter match-name="sfem_cond"/>
 </hibernate-reverse-engineering>

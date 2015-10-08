@@ -61,6 +61,7 @@ public class GenericDaoImp<Entity, K extends Serializable> implements GenericDao
         }finally{
             session.close();
         }
+        
     }
 
     @Override

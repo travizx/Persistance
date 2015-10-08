@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2/10/2015 11:02:29 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated 8/10/2015 10:59:23 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.mx.teknei.pcabordo.lib.entities.SfruRuta" table="sfru_ruta" schema="sitm" optimistic-lock="version">
         <id name="idRuta" type="int">
@@ -35,7 +35,7 @@
         </property>
         <property name="tipoServ" type="java.lang.Integer">
             <column name="tipo_serv">
-                <comment>Semi-expres &#150; ordinario</comment>
+                <comment>Semi-expres ? ordinario</comment>
             </column>
         </property>
         <property name="parMax" type="java.lang.Integer">

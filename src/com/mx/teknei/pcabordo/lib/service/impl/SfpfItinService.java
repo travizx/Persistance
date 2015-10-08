@@ -5,9 +5,11 @@
  */
 package com.mx.teknei.pcabordo.lib.service.impl;
 
-import com.mx.teknei.pcabordo.lib.entities.SfmoReceNave;
+import com.mx.teknei.pcabordo.lib.dao.ISfpfItinDAO;
+import com.mx.teknei.pcabordo.lib.dao.impl.SfpfItinDAO;
 import com.mx.teknei.pcabordo.lib.entities.SfpfItin;
 import com.mx.teknei.pcabordo.lib.service.ISfpfItinService;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -15,25 +17,44 @@ import java.util.List;
  * @author ajimenez
  */
 public class SfpfItinService implements ISfpfItinService {
+    
+    ISfpfItinDAO itinDAO;
 
+    public SfpfItinService() {
+        this.itinDAO = new SfpfItinDAO();
+    }
+    
     @Override
-    public void ActualizarItinera(SfpfItin itin) {
-        
-        
-        
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<SfpfItin> ObtenerItinEntreRangoFecha(Long dateMore, Long dateLess,int id_Ruta ,int id_Estado) {
+        return itinDAO.compareTwoDatesInHora_Sali(dateMore, dateLess,id_Ruta,id_Estado);
     }
 
     @Override
-    public List<SfpfItin> ListaItin() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void  ActivarItinera(SfpfItin itinerario) {
+         itinDAO.update(itinerario);
     }
 
     @Override
-    public List<SfpfItin> ObtenerPorIdEsta(int idEsta) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void CerrarItinerario(SfpfItin itinerario) {
+        itinDAO.update(itinerario);
     }
 
+    @Override
+    public SfpfItin BuscarItinPorID(int id) {
+        return itinDAO.findByID(id);
+    }
+
+    @Override
+    public List<SfpfItin> BuscarVehiPorID(Integer idVehi) {
+        return itinDAO.findIdVehiculo(idVehi);
+    }
+
+    @Override
+    public void updateKmRecorridos(int idVehi, Date hora1, Date hora2, double kmReco) {
+        itinDAO.updateKmRecorridos(idVehi, hora1, hora2, kmReco);
+    }
+
+    
 
 
     

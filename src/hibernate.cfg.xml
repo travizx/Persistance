@@ -4,7 +4,7 @@
   <session-factory>
     <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
     <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
-    <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/pc_abordo</property>
+    <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/SITM_SICOFT</property>
     <property name="hibernate.connection.username">postgres</property>
     <property name="hibernate.connection.password">admin</property>
     <mapping resource="com/mx/teknei/pcabordo/lib/entities/SfpfItin.hbm.xml"/>
@@ -13,7 +13,6 @@
     <mapping resource="com/mx/teknei/pcabordo/lib/entities/CctmDire.hbm.xml"/>
     <mapping resource="com/mx/teknei/pcabordo/lib/entities/CctmCodp.hbm.xml"/>
     <mapping resource="com/mx/teknei/pcabordo/lib/entities/CctmEstd.hbm.xml"/>
-    <mapping resource="com/mx/teknei/pcabordo/lib/entities/SfgfHoseFlot.hbm.xml"/>
     <mapping resource="com/mx/teknei/pcabordo/lib/entities/SfemCond.hbm.xml"/>
     <mapping resource="com/mx/teknei/pcabordo/lib/entities/SfdtDiti.hbm.xml"/>
     <mapping resource="com/mx/teknei/pcabordo/lib/entities/SfmoTipu.hbm.xml"/>

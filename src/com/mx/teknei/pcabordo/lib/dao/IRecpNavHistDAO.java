@@ -6,6 +6,8 @@
 package com.mx.teknei.pcabordo.lib.dao;
 
 import com.mx.teknei.pcabordo.lib.entities.SfmoHistReceNave;
+import java.util.Date;
+import java.util.List;
 
 
 /**
@@ -13,5 +15,7 @@ import com.mx.teknei.pcabordo.lib.entities.SfmoHistReceNave;
  * @author hjcacho
  */
 public interface IRecpNavHistDAO extends GenericDao<SfmoHistReceNave, Long>{
+    public List<SfmoHistReceNave> listHisRecpNav();
+    public List<SfmoHistReceNave> listCicloReco(Date hora1, Date hora2, int idVehiculo);
     
 }

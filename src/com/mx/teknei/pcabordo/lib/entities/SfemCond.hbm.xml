@@ -1,15 +1,20 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2/10/2015 11:02:29 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated 8/10/2015 10:59:23 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.mx.teknei.pcabordo.lib.entities.SfemCond" table="sfem_cond" schema="sitm" optimistic-lock="version">
-        <id name="idCond" type="int">
-            <column name="id_cond" />
+        <id name="idEmpCond" type="int">
+            <column name="id_emp_cond" />
             <generator class="assigned" />
         </id>
-        <property name="numLic" type="string">
-            <column name="num_lic" length="10">
+        <many-to-one name="sfpcCata" class="com.mx.teknei.pcabordo.lib.entities.SfpcCata" fetch="select">
+            <column name="stat_cond">
+                <comment>Este es un campo para una validaci&#243;n en el cual el conductor puede llegar a bloquearse por muchos intentos de Logeo en un PC Abordo.</comment>
+            </column>
+        </many-to-one>
+        <property name="numLic" type="java.lang.Integer">
+            <column name="num_lic">
                 <comment>Numero de licencia</comment>
             </column>
         </property>
@@ -33,39 +38,34 @@
                 <comment>Password del conductor</comment>
             </column>
         </property>
-        <property name="statCond" type="java.lang.Integer">
-            <column name="stat_cond">
-                <comment>Este es un campo para una validaci&#243;n en el cual el conductor puede llegar a bloquearse por muchos intentos de Logeo en un PC Abordo.</comment>
-            </column>
-        </property>
         <property name="usrCrea" type="string">
             <column name="usr_crea" length="10" not-null="true">
-                <comment>usuario que creo el registro</comment>
+                <comment>Nombre del usuario que cre&#243; el registro</comment>
             </column>
         </property>
         <property name="fchCrea" type="timestamp">
             <column name="fch_crea" length="29" not-null="true">
-                <comment>fecha de creaci&#243;n del registro</comment>
+                <comment>Fecha de creaci&#243;n del registro</comment>
             </column>
         </property>
         <property name="usrModi" type="string">
             <column name="usr_modi" length="10">
-                <comment>usuario de modificaci&#243;n del registro</comment>
+                <comment>Nombre del usuario que modific&#243; el registro</comment>
             </column>
         </property>
         <property name="fchModi" type="timestamp">
             <column name="fch_modi" length="29">
-                <comment>fecha de modificaci&#243;n del registro</comment>
+                <comment>Fecha de modificaci&#243;n del registro</comment>
             </column>
         </property>
-        <property name="idEsta" type="java.lang.Integer">
-            <column name="id_esta">
-                <comment>FK_sfpc_cata - Estado de actualizaci&#243;n del registro</comment>
+        <property name="idEsta" type="int">
+            <column name="id_esta" not-null="true">
+                <comment>FK_CCTM_CATA - Estado de actualizaci&#243;n del registro</comment>
             </column>
         </property>
-        <property name="idTipo" type="java.lang.Integer">
-            <column name="id_tipo">
-                <comment>FK_sfpc_cata - Tipo del registro</comment>
+        <property name="idTipo" type="int">
+            <column name="id_tipo" not-null="true">
+                <comment>FK_CCTM_CATA - Tipo del registro</comment>
             </column>
         </property>
         <set name="sfcrVehiConds" table="sfcr_vehi_cond" inverse="true" lazy="true" fetch="select">

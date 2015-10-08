@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2/10/2015 11:02:29 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated 8/10/2015 10:59:23 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.mx.teknei.pcabordo.lib.entities.SfesEst" table="sfes_est" schema="sitm" optimistic-lock="version">
         <comment>Estaciones del BRT, un conjunto de estaciones forman una linea</comment>
@@ -117,6 +117,22 @@
             <key>
                 <column name="id_esta_dest">
                     <comment>FK estacion destino</comment>
+                </column>
+            </key>
+            <one-to-many class="com.mx.teknei.pcabordo.lib.entities.SfpfItin" />
+        </set>
+        <set name="sfpfItinsForIdEstaDest_1" table="sfpf_itin" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_esta_dest">
+                    <comment>FK estacion destino</comment>
+                </column>
+            </key>
+            <one-to-many class="com.mx.teknei.pcabordo.lib.entities.SfpfItin" />
+        </set>
+        <set name="sfpfItinsForIdEstaOrig_1" table="sfpf_itin" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_esta_orig">
+                    <comment>Id estacion Origen FK</comment>
                 </column>
             </key>
             <one-to-many class="com.mx.teknei.pcabordo.lib.entities.SfpfItin" />
