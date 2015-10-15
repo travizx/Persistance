@@ -41,19 +41,8 @@ public class RecpNavHistDAO extends GenericDaoImp<SfmoHistReceNave, Long> implem
         return recpnav;
     }
 
-    public List<SfmoHistReceNave> listCicloReco(Date hora1, Date hora2, int idVehiculo) {
-
-        java.util.Date utilDate = new java.util.Date();
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(hora1);
-        cal.set(Calendar.MILLISECOND, 0);
-
+    public List<SfmoHistReceNave> listCicloReco(Long hora1, Long hora2, int idVehiculo) {
         
-        Calendar cal2 = Calendar.getInstance();
-        cal2.setTime(hora2);
-        cal2.set(Calendar.MILLISECOND, 0);
-
-        SfmoHistReceNave s_hist = null;
         Transaction trans = null;
         List<SfmoHistReceNave> cicloRe = null;
         Session session = getSessionFactory().openSession();
@@ -61,16 +50,15 @@ public class RecpNavHistDAO extends GenericDaoImp<SfmoHistReceNave, Long> implem
             SfvhVehi vehi = new SfvhVehi();
             vehi.setIdVehi(idVehiculo);
             trans = session.beginTransaction();
-            Query query = session.createQuery("FROM SfmoHistReceNave AS c WHERE  c.horaSistReceNave BETWEEN :hora1 AND :hora2 AND c.sfvhVehi = :id_vehi");
-            query.setParameter("hora1", new java.sql.Timestamp(hora1.getTime()));
-            query.setParameter("hora2", new java.sql.Timestamp(hora2.getTime()));
+            Query query = session.createQuery("FROM SfmoHistReceNave AS c WHERE  c.fchCrea BETWEEN :hora1 AND :hora2  AND c.sfvhVehi = :id_vehi ORDER BY idRecoNave ASC");
+            query.setParameter("hora1", new java.sql.Timestamp(hora1));
+            query.setParameter("hora2", new java.sql.Timestamp(hora2));
             query.setParameter("id_vehi", vehi);
             cicloRe = query.list();
 
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            session.flush();
             session.close();
         }
         return cicloRe;

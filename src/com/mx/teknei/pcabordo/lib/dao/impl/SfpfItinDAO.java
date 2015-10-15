@@ -7,20 +7,15 @@ package com.mx.teknei.pcabordo.lib.dao.impl;
 
 import static com.mx.teknei.pcabordo.lib.connection.LoadConnection.getSessionFactory;
 import com.mx.teknei.pcabordo.lib.dao.ISfpfItinDAO;
-import com.mx.teknei.pcabordo.lib.entities.SbctAlar;
-import com.mx.teknei.pcabordo.lib.entities.SfmoReceNave;
 import com.mx.teknei.pcabordo.lib.entities.SfpfItin;
 import com.mx.teknei.pcabordo.lib.entities.SfruRuta;
 import com.mx.teknei.pcabordo.lib.entities.SfvhVehi;
 import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
-import org.hibernate.Criteria;
 import org.hibernate.Query;
-import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.hibernate.criterion.Restrictions;
 
 /**
  *

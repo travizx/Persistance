@@ -19,5 +19,5 @@ public interface IRecpNavHistService {
     void ActualizarRecpNav(SfmoHistReceNave recp);
     void Eliminar(SfmoHistReceNave recp);
     public List<SfmoHistReceNave> ListarHisRecpNav();
-    public List<SfmoHistReceNave> listCicloReco(Date hora1, Date hora2, int idVehiculo);
+    public List<SfmoHistReceNave> listCicloReco(Long salida, Long llegada, int idVehiculo);
 }

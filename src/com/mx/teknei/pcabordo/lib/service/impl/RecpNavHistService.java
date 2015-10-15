@@ -46,8 +46,8 @@ public class RecpNavHistService implements IRecpNavHistService{
     }
 
     @Override
-    public List<SfmoHistReceNave> listCicloReco(Date hora1, Date hora2, int idVehiculo) {
-        return recpNavHistDAO.listCicloReco(hora1, hora2, idVehiculo);
+    public List<SfmoHistReceNave> listCicloReco(Long salida, Long llegada, int idVehiculo) {
+        return recpNavHistDAO.listCicloReco(salida, llegada, idVehiculo);
     }
     
     

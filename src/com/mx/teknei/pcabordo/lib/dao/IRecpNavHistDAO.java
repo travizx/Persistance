@@ -16,6 +16,5 @@ import java.util.List;
  */
 public interface IRecpNavHistDAO extends GenericDao<SfmoHistReceNave, Long>{
     public List<SfmoHistReceNave> listHisRecpNav();
-    public List<SfmoHistReceNave> listCicloReco(Date hora1, Date hora2, int idVehiculo);
-    
+    public List<SfmoHistReceNave> listCicloReco(Long hora1, Long hora2, int idVehiculo);
 }
