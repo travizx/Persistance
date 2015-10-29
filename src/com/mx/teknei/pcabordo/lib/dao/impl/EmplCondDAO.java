@@ -1,6 +1,7 @@
 
 package com.mx.teknei.pcabordo.lib.dao.impl;
 
+import com.mx.teknei.pcabordo.lib.connection.LoadConnection;
 import com.mx.teknei.pcabordo.lib.dao.IEmplCondDAO;
 import com.mx.teknei.pcabordo.lib.entities.SfemCond;
 import java.util.List;
@@ -24,7 +25,14 @@ public class EmplCondDAO extends GenericDaoImp<SfemCond, Long> implements IEmplC
     public List<SfemCond> listEmplConductor() {
         List<SfemCond> emplCond = null;
         Transaction trans = null;
-        Session session = getSessionFactory().openSession();
+        Session session = null;
+        try {
+            session = LoadConnection.getSessionFactory().openSession();
+        } catch (ExceptionInInitializerError eiie){
+            System.out.println("Error al iniciar la coneccion a BD postgres:"+eiie.getMessage()); 
+        } catch (Exception e) {
+            System.err.println("Error en LoadConnection."+e.getMessage());
+        }
         try {
             trans = session.beginTransaction();
             emplCond = session.createQuery("FROM SfemCond").list();
@@ -41,7 +49,14 @@ public class EmplCondDAO extends GenericDaoImp<SfemCond, Long> implements IEmplC
     public List<SfemCond> findUser(String user) {
         List<SfemCond> listUsersFound = null;
         Transaction trans = null;
-        Session session = getSessionFactory().openSession();
+        Session session = null;
+        try {
+            session = LoadConnection.getSessionFactory().openSession();
+        } catch (ExceptionInInitializerError eiie){
+            System.out.println("Error al iniciar la coneccion a BD postgres:"+eiie.getMessage()); 
+        } catch (Exception e) {
+            System.err.println("Error en LoadConnection."+e.getMessage());
+        }
         try {
             trans = session.beginTransaction();
             Query queryFindUserAndPass = session.createQuery("FROM SfemCond c WHERE c.userCond= :userName");

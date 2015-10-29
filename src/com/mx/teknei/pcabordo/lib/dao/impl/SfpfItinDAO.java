@@ -5,6 +5,7 @@
  */
 package com.mx.teknei.pcabordo.lib.dao.impl;
 
+import com.mx.teknei.pcabordo.lib.connection.LoadConnection;
 import static com.mx.teknei.pcabordo.lib.connection.LoadConnection.getSessionFactory;
 import com.mx.teknei.pcabordo.lib.dao.ISfpfItinDAO;
 import com.mx.teknei.pcabordo.lib.entities.SfpfItin;
@@ -71,7 +72,14 @@ public class SfpfItinDAO extends GenericDaoImp<SfpfItin, Long> implements ISfpfI
     public List<SfpfItin> compareTwoDatesInHora_Sali(Long dateMore, Long dateLess,int id_Ruta ,int id_Estado) {
         List<SfpfItin> itin = null;
         Transaction trans = null;
-        Session session = getSessionFactory().openSession();
+        Session session = null;
+        try {
+            session = LoadConnection.getSessionFactory().openSession();
+        } catch (ExceptionInInitializerError eiie){
+            System.out.println("Error al iniciar la coneccion a BD postgres:"+eiie.getMessage()); 
+        } catch (Exception e) {
+            System.err.println("Error en LoadConnection."+e.getMessage());
+        }
         try {
                 trans = session.beginTransaction();
                 Query query = session.createQuery("FROM SfpfItin AS c WHERE c.horaSaliItin BETWEEN :stDate AND :edDate AND sfruRuta = :ruta AND idEsta = :id_esta");//AND sfruRuta = :ruta AND idEsta = :id_esta"
@@ -95,7 +103,14 @@ public class SfpfItinDAO extends GenericDaoImp<SfpfItin, Long> implements ISfpfI
     public SfpfItin findByID(int id) {
         SfpfItin intiEnty = null;
         Transaction trans = null;
-        Session session = getSessionFactory().openSession();
+        Session session = null;
+        try {
+            session = LoadConnection.getSessionFactory().openSession();
+        } catch (ExceptionInInitializerError eiie){
+            System.out.println("Error al iniciar la coneccion a BD postgres:"+eiie.getMessage()); 
+        } catch (Exception e) {
+            System.err.println("Error en LoadConnection."+e.getMessage());
+        }
         try {
             trans = session.beginTransaction();
             Query query = session.createQuery("FROM SfpfItin s WHERE s.idItin= :idITIN");
@@ -112,7 +127,14 @@ public class SfpfItinDAO extends GenericDaoImp<SfpfItin, Long> implements ISfpfI
 
     @Override
     public void updateKmRecorridos(int idVehi, Date hora1, Date hora2, double kmReco) {
-        Session session = getSessionFactory().openSession();
+        Session session = null;
+        try {
+            session = LoadConnection.getSessionFactory().openSession();
+        } catch (ExceptionInInitializerError eiie){
+            System.out.println("Error al iniciar la coneccion a BD postgres:"+eiie.getMessage()); 
+        } catch (Exception e) {
+            System.err.println("Error en LoadConnection."+e.getMessage());
+        }
         try {
             Transaction tran = session.beginTransaction(); 
             SfvhVehi vehi = new SfvhVehi();
@@ -142,7 +164,14 @@ public class SfpfItinDAO extends GenericDaoImp<SfpfItin, Long> implements ISfpfI
     public List<SfpfItin> findIdVehiculo(int idVehi) {
         List<SfpfItin> itin = null;
         Transaction tran = null;
-        Session session = getSessionFactory().openSession();
+        Session session = null;
+        try {
+            session = LoadConnection.getSessionFactory().openSession();
+        } catch (ExceptionInInitializerError eiie){
+            System.out.println("Error al iniciar la coneccion a BD postgres:"+eiie.getMessage()); 
+        } catch (Exception e) {
+            System.err.println("Error en LoadConnection."+e.getMessage());
+        }
         try {
 
             tran = session.beginTransaction();

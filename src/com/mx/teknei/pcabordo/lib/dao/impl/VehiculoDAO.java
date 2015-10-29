@@ -6,6 +6,7 @@
 
 package com.mx.teknei.pcabordo.lib.dao.impl;
 
+import com.mx.teknei.pcabordo.lib.connection.LoadConnection;
 import com.mx.teknei.pcabordo.lib.dao.IVehiculoDAO;
 import static com.mx.teknei.pcabordo.lib.connection.LoadConnection.getSessionFactory;
 import com.mx.teknei.pcabordo.lib.entities.SfvhVehi;
@@ -24,7 +25,14 @@ public class VehiculoDAO extends GenericDaoImp<SfvhVehi, Long> implements IVehic
     public List<SfvhVehi> listVehiculo() {
         List<SfvhVehi> vehiculo = new ArrayList<>();
         Transaction trans = null;
-        Session session = getSessionFactory().openSession();
+        Session session = null;
+        try {
+            session = LoadConnection.getSessionFactory().openSession();
+        } catch (ExceptionInInitializerError eiie){
+            System.out.println("Error al iniciar la coneccion a BD postgres:"+eiie.getMessage()); 
+        } catch (Exception e) {
+            System.err.println("Error en LoadConnection."+e.getMessage());
+        }
         try {
             trans = session.beginTransaction();
             vehiculo = session.createQuery("from SfvhVehi").list();
@@ -40,7 +48,14 @@ public class VehiculoDAO extends GenericDaoImp<SfvhVehi, Long> implements IVehic
     public List<SfvhVehi> getVehiculoForId(String matricula){
         List<SfvhVehi> vehiculo = new ArrayList<>();
         Transaction trans = null;
-        Session session = getSessionFactory().openSession();
+        Session session = null;
+        try {
+            session = LoadConnection.getSessionFactory().openSession();
+        } catch (ExceptionInInitializerError eiie){
+            System.out.println("Error al iniciar la coneccion a BD postgres:"+eiie.getMessage()); 
+        } catch (Exception e) {
+            System.err.println("Error en LoadConnection."+e.getMessage());
+        }
         try {
             trans = session.beginTransaction();
             Query query = session.createQuery("from SfvhVehi E WHERE E.placVehi = :placa_vehiculo");

@@ -5,6 +5,7 @@
  */
 package com.mx.teknei.pcabordo.lib.dao.impl;
 
+import com.mx.teknei.pcabordo.lib.connection.LoadConnection;
 import static com.mx.teknei.pcabordo.lib.connection.LoadConnection.getSessionFactory;
 import com.mx.teknei.pcabordo.lib.dao.ISbctAlarDAO;
 import com.mx.teknei.pcabordo.lib.entities.SbctAlar;
@@ -23,7 +24,14 @@ public class SbctAlarDAO extends GenericDaoImp<SbctAlar, Long> implements ISbctA
         
         SbctAlar s_alar = null;
         Transaction trans = null;
-        Session session = getSessionFactory().openSession();
+        Session session = null;
+        try {
+            session = LoadConnection.getSessionFactory().openSession();
+        } catch (ExceptionInInitializerError eiie){
+            System.out.println("Error al iniciar la coneccion a BD postgres:"+eiie.getMessage()); 
+        } catch (Exception e) {
+            System.err.println("Error en LoadConnection."+e.getMessage());
+        }
         try {
             trans = session.beginTransaction();
             SQLQuery query = session.createSQLQuery("select * from sitm.sbct_alar s where s.des_alar=?");
@@ -45,7 +53,14 @@ public class SbctAlarDAO extends GenericDaoImp<SbctAlar, Long> implements ISbctA
     public List<SbctAlar> listAlar() {
         List<SbctAlar> alarmsList = null;
         Transaction trans = null;
-        Session session = getSessionFactory().openSession();
+        Session session = null;
+        try {
+            session = LoadConnection.getSessionFactory().openSession();
+        } catch (ExceptionInInitializerError eiie){
+            System.out.println("Error al iniciar la coneccion a BD postgres:"+eiie.getMessage()); 
+        } catch (Exception e) {
+            System.err.println("Error en LoadConnection."+e.getMessage());
+        }
         try {
             trans = session.beginTransaction();
             alarmsList = session.createQuery("from SbctAlar").list();

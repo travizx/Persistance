@@ -5,6 +5,7 @@
  */
 package com.mx.teknei.pcabordo.lib.dao.impl;
 
+import com.mx.teknei.pcabordo.lib.connection.LoadConnection;
 import static com.mx.teknei.pcabordo.lib.connection.LoadConnection.getSessionFactory;
 import com.mx.teknei.pcabordo.lib.dao.ISfopEquiAlarDAO;
 import com.mx.teknei.pcabordo.lib.entities.SfopEquiAlar;
@@ -25,7 +26,14 @@ public class SfopEquiAlarDAO extends GenericDaoImp<SfopEquiAlar, Long> implement
     public List<SfopEquiAlar> listSfopEquiAlar() {
            List<SfopEquiAlar> opAlar = new ArrayList<>();
         Transaction trans = null;
-        Session session = getSessionFactory().openSession();
+        Session session = null;
+        try {
+            session = LoadConnection.getSessionFactory().openSession();
+        } catch (ExceptionInInitializerError eiie){
+            System.out.println("Error al iniciar la coneccion a BD postgres:"+eiie.getMessage()); 
+        } catch (Exception e) {
+            System.err.println("Error en LoadConnection."+e.getMessage());
+        }
         try {
             trans = session.beginTransaction();
             opAlar = session.createQuery("from SfopEquiAlar").list();

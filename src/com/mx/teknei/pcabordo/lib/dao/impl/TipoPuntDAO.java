@@ -5,6 +5,7 @@
  */
 package com.mx.teknei.pcabordo.lib.dao.impl;
 
+import com.mx.teknei.pcabordo.lib.connection.LoadConnection;
 import static com.mx.teknei.pcabordo.lib.connection.LoadConnection.getSessionFactory;
 import com.mx.teknei.pcabordo.lib.dao.ITipoPuntDAO;
 import com.mx.teknei.pcabordo.lib.entities.SfmoReceNave;
@@ -24,7 +25,14 @@ public class TipoPuntDAO extends GenericDaoImp<SfmoTipu, Long> implements ITipoP
     public List<SfmoTipu> listTipoPunto() {
         List<SfmoTipu> tipoPunto = new ArrayList<>();
         Transaction trans = null;
-        Session session = getSessionFactory().openSession();
+        Session session = null;
+        try {
+            session = LoadConnection.getSessionFactory().openSession();
+        } catch (ExceptionInInitializerError eiie){
+            System.out.println("Error al iniciar la coneccion a BD postgres:"+eiie.getMessage()); 
+        } catch (Exception e) {
+            System.err.println("Error en LoadConnection."+e.getMessage());
+        }
         try {
             trans = session.beginTransaction();
             tipoPunto = session.createQuery("from SfmoTipu").list();

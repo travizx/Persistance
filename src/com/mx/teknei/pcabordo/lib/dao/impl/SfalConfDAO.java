@@ -5,6 +5,7 @@
  */
 package com.mx.teknei.pcabordo.lib.dao.impl;
 
+import com.mx.teknei.pcabordo.lib.connection.LoadConnection;
 import static com.mx.teknei.pcabordo.lib.connection.LoadConnection.getSessionFactory;
 import com.mx.teknei.pcabordo.lib.dao.ISfalConfDAO;
 import com.mx.teknei.pcabordo.lib.entities.SfalConf;
@@ -23,7 +24,14 @@ public class SfalConfDAO extends GenericDaoImp<SfalConf, Long> implements ISfalC
     @Override
     public List<SfalConf> listSfalConf() {
         List<SfalConf> confAlar = new ArrayList<>();
-        Session session = getSessionFactory().openSession();
+        Session session = null;
+        try {
+            session = LoadConnection.getSessionFactory().openSession();
+        } catch (ExceptionInInitializerError eiie){
+            System.out.println("Error al iniciar la coneccion a BD postgres:"+eiie.getMessage()); 
+        } catch (Exception e) {
+            System.err.println("Error en LoadConnection."+e.getMessage());
+        }
         try {
             Transaction trans = null;
 
@@ -42,9 +50,15 @@ public class SfalConfDAO extends GenericDaoImp<SfalConf, Long> implements ISfalC
     @Override
     public SfalConf getAlarConfForName(String nameConfAlar) {
         SfalConf s_alar = null;
-
         Transaction trans = null;
-        Session session = getSessionFactory().openSession();
+        Session session = null;
+        try {
+            session = LoadConnection.getSessionFactory().openSession();
+        } catch (ExceptionInInitializerError eiie){
+            System.out.println("Error al iniciar la coneccion a BD postgres:"+eiie.getMessage()); 
+        } catch (Exception e) {
+            System.err.println("Error en LoadConnection."+e.getMessage());
+        }
         try {
             trans = session.beginTransaction();
             SQLQuery query = session.createSQLQuery("SELECT * FROM sitm.sfal_conf s WHERE s.id_alar = (SELECT id_alar from sitm.sbct_alar where des_alar = ? )");

@@ -5,6 +5,7 @@
  */
 package com.mx.teknei.pcabordo.lib.dao.impl;
 
+import com.mx.teknei.pcabordo.lib.connection.LoadConnection;
 import static com.mx.teknei.pcabordo.lib.connection.LoadConnection.getSessionFactory;
 import com.mx.teknei.pcabordo.lib.dao.IRecpNavDAO;
 import java.util.ArrayList;
@@ -28,7 +29,14 @@ public class RecpNavDAO extends GenericDaoImp<SfmoReceNave, Long> implements IRe
     public List<SfmoReceNave> listRecpNav() {
         List<SfmoReceNave> recpnav = null;
         Transaction trans = null;
-        Session session = getSessionFactory().openSession();
+        Session session = null;
+        try {
+            session = LoadConnection.getSessionFactory().openSession();
+        } catch (ExceptionInInitializerError eiie){
+            System.out.println("Error al iniciar la coneccion a BD postgres:"+eiie.getMessage()); 
+        } catch (Exception e) {
+            System.err.println("Error en LoadConnection."+e.getMessage());
+        }
         try {
             trans = session.beginTransaction();
             recpnav = session.createQuery("from SfmoReceNave").list();
@@ -46,7 +54,14 @@ public class RecpNavDAO extends GenericDaoImp<SfmoReceNave, Long> implements IRe
     public SfmoReceNave findByIdVehi(int idVehi) {
         SfmoReceNave recpnav = null;
         Transaction trans = null;
-        Session session = getSessionFactory().openSession();
+        Session session = null;
+        try {
+            session = LoadConnection.getSessionFactory().openSession();
+        } catch (ExceptionInInitializerError eiie){
+            System.out.println("Error al iniciar la coneccion a BD postgres:"+eiie.getMessage()); 
+        } catch (Exception e) {
+            System.err.println("Error en LoadConnection."+e.getMessage());
+        }
         try {
             trans = session.beginTransaction();
             Criteria crit = session.createCriteria(SfmoReceNave.class);
@@ -68,7 +83,14 @@ public class RecpNavDAO extends GenericDaoImp<SfmoReceNave, Long> implements IRe
     public SfmoReceNave lastRecpNav() {
         SfmoReceNave rec_nav = null;
         Transaction trans = null;
-        Session session = getSessionFactory().openSession();
+        Session session = null;
+        try {
+            session = LoadConnection.getSessionFactory().openSession();
+        } catch (ExceptionInInitializerError eiie){
+            System.out.println("Error al iniciar la coneccion a BD postgres:"+eiie.getMessage()); 
+        } catch (Exception e) {
+            System.err.println("Error en LoadConnection."+e.getMessage());
+        }
         try {
             trans = session.beginTransaction();
 //            Query queryFindCata = session.createQuery("FROM SfmoReceNave r ORDER BY r.idRecoNave DESC LIMIT 1");
@@ -95,7 +117,14 @@ public class RecpNavDAO extends GenericDaoImp<SfmoReceNave, Long> implements IRe
     public SfmoReceNave findByIdRecpNav(int idRecpNav) {
         SfmoReceNave recpnav = null;
         Transaction trans = null;
-        Session session = getSessionFactory().openSession();
+        Session session = null;
+        try {
+            session = LoadConnection.getSessionFactory().openSession();
+        } catch (ExceptionInInitializerError eiie){
+            System.out.println("Error al iniciar la coneccion a BD postgres:"+eiie.getMessage()); 
+        } catch (Exception e) {
+            System.err.println("Error en LoadConnection."+e.getMessage());
+        }
         try {
             trans = session.beginTransaction();
             Criteria crit = session.createCriteria(SfmoReceNave.class);

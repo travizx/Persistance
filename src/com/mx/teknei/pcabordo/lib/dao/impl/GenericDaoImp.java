@@ -5,13 +5,15 @@
  */
 package com.mx.teknei.pcabordo.lib.dao.impl;
 
+
+import com.mx.teknei.pcabordo.lib.connection.LoadConnection;
 import java.lang.reflect.ParameterizedType;
 import java.io.Serializable;
 import com.mx.teknei.pcabordo.lib.db.exception.UnableToSaveException;
 import com.mx.teknei.pcabordo.lib.dao.GenericDao;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
-import static com.mx.teknei.pcabordo.lib.connection.LoadConnection.getSessionFactory;
+import org.hibernate.Transaction;
 
 /**
  *
@@ -21,6 +23,7 @@ public class GenericDaoImp<Entity, K extends Serializable> implements GenericDao
 
     public Class<Entity> domainClass = getDomainClass();
     private Session session;
+    private Transaction trans;
 
     protected Class getDomainClass() {
         if (domainClass == null) {
@@ -32,16 +35,26 @@ public class GenericDaoImp<Entity, K extends Serializable> implements GenericDao
     }
 
     private Session getHibernateTemplate() {
-        session = getSessionFactory().openSession();
-        session.beginTransaction();
+        Session session = null;
+        try {
+            session = LoadConnection.getSessionFactory().openSession();
+        } catch (ExceptionInInitializerError eiie){
+            System.out.println("Error al iniciar la coneccion a BD postgres:"+eiie.getMessage()); 
+            eiie.printStackTrace();
+        } catch (Exception e) {
+            System.err.println("Error en LoadConnection."+e.getMessage());
+            e.printStackTrace();
+        }
         return session;
     }
 
     @Override
     public void add(Entity t) {
         try {
-            getHibernateTemplate().save(t);
-            session.getTransaction().commit();
+            session = getHibernateTemplate();
+            session.save(t);
+            Transaction trans = session.beginTransaction();
+            trans.commit();
         } catch (HibernateException e) {
            System.out.println(e.getMessage());
             throw new UnableToSaveException(e);
@@ -53,8 +66,10 @@ public class GenericDaoImp<Entity, K extends Serializable> implements GenericDao
     @Override
     public void update(Entity t) {
         try {
-            getHibernateTemplate().update(t);
-            session.getTransaction().commit();
+            session = getHibernateTemplate();
+            session.update(t);
+            Transaction trans = session.beginTransaction();
+            trans.commit();
         } catch (HibernateException e) {
             System.out.println(e.getMessage());
             throw new UnableToSaveException(e);
@@ -66,15 +81,34 @@ public class GenericDaoImp<Entity, K extends Serializable> implements GenericDao
 
     @Override
     public Entity find(K id) {
-        Entity returnValue = (Entity) getHibernateTemplate().load(domainClass, id);
-        session.getTransaction().commit();
+        Entity returnValue = null;
+        try {
+            session = getHibernateTemplate();
+            returnValue = (Entity) session.load(domainClass, id);
+            Transaction trans = session.beginTransaction();
+            trans.commit();
+        } catch (HibernateException e) {
+            System.out.println(e.getMessage());
+            throw new UnableToSaveException(e);
+        }finally{
+            session.close();
+        }
         return returnValue;
     }
 
     @Override
     public void erase(Entity t) {
-        getHibernateTemplate().delete(t);
-        session.getTransaction().commit();
+        try {
+            session = getHibernateTemplate();
+            session.delete(t);
+            Transaction trans = session.beginTransaction();
+            trans.commit();
+        } catch (HibernateException e) {
+            System.out.println(e.getMessage());
+            throw new UnableToSaveException(e);
+        }finally{
+            session.close();
+        }
     }
 
 }

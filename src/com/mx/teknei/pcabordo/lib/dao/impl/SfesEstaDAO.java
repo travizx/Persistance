@@ -19,7 +19,14 @@ public class SfesEstaDAO extends GenericDaoImp<SfesEst,Long> implements ISfesEst
     public List<SfesEst> listStation() {
         List<SfesEst> estacionesList = null;
         Transaction trans = null;
-        Session session = LoadConnection.getSessionFactory().openSession();
+        Session session = null;
+        try {
+            session = LoadConnection.getSessionFactory().openSession();
+        } catch (ExceptionInInitializerError eiie){
+            System.out.println("Error al iniciar la coneccion a BD postgres:"+eiie.getMessage()); 
+        } catch (Exception e) {
+            System.err.println("Error en LoadConnection."+e.getMessage());
+        }
         try {
             trans = session.beginTransaction();
             estacionesList = session.createQuery("FROM SfesEst").list();

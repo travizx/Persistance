@@ -5,7 +5,7 @@
  */
 package com.mx.teknei.pcabordo.lib.dao.impl;
 
-import static com.mx.teknei.pcabordo.lib.connection.LoadConnection.getSessionFactory;
+import com.mx.teknei.pcabordo.lib.connection.LoadConnection;
 import com.mx.teknei.pcabordo.lib.dao.ISfmoHoraSeopDAO;
 import com.mx.teknei.pcabordo.lib.entities.SfmoHoraSeop;
 import java.util.List;
@@ -23,7 +23,14 @@ public class SfmoHoraSeopDAO extends GenericDaoImp<SfmoHoraSeop, Long> implement
     public List<SfmoHoraSeop> listHoraSeop() {
         List<SfmoHoraSeop> horaOpeList = null;
         Transaction trans = null;
-        Session session = getSessionFactory().openSession();
+        Session session = null;
+        try {
+            session = LoadConnection.getSessionFactory().openSession();
+        } catch (ExceptionInInitializerError eiie){
+            System.out.println("Error al iniciar la coneccion a BD postgres:"+eiie.getMessage()); 
+        } catch (Exception e) {
+            System.err.println("Error en LoadConnection."+e.getMessage());
+        }
         try {
             trans = session.beginTransaction();
             horaOpeList = session.createQuery("FROM SfmoHoraSeop").list();
